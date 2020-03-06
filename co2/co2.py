@@ -8,4 +8,4 @@ print(global_co2.head())
 #print(nation)
 #print(region)
 
-# az a fasza, ha minden megyen faszan
+## az a fasza, ha minden megyen faszan
