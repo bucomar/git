@@ -8,9 +8,9 @@ import matplotlib.pyplot as plt
 
 url_c = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
 
-# url_d = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv'
+url_d = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_deaths_global.csv&filename=time_series_covid19_deaths_global.csv'
 
-# url_r = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv'
+url_r = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv'
 
 
 #url = '/home/buco/github/git/COVID_19/time_series-ncov-Confirmed.csv'
@@ -18,12 +18,17 @@ url_c = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%
 # url = 'COVID_19/time_series-ncov-Confirmed.csv'
 
 conf = pd.read_csv(url_c)
-# death = pd.read_csv(url_d)
-# rec = pd.read_csv(url_r)
+death = pd.read_csv(url_d)
+rec = pd.read_csv(url_r)
 
 df_conf = pd.DataFrame(conf)
-# df_death = pd.DataFrame(death)
-# df_rec = pd.DataFrame(rec)
+df_death = pd.DataFrame(death)
+df_rec = pd.DataFrame(rec)
+
+# np_conf = np.array(conf)
+# np_death = np.array(death)
+# np_rec = np.array(rec)
+
 
 
 # print(df_conf)
@@ -36,25 +41,60 @@ df_conf = pd.DataFrame(conf)
 
 # df_conf_hude = pd.DataFrame(df_conf.loc[df_conf['Country/Region'] == 'Hungary'])
 
-df_conf_hude = pd.DataFrame(df_conf.loc[df_conf['Country/Region'] == 'Hungary'])
-# df.loc[(df["B"] > 50) & (df["C"] == 900), "A"]
-print(df_conf_hude)
+# df_conf_hude = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == 'Hungary')])
+
+countryes = ['Hungary', 'Germany']
+
+# df_conf_hude = pd.DataFrame(df_conf.head(0))
+
+df_conf_hude = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == countryes[0])])
+
+df_death_hude = pd.DataFrame(df_death.loc[(df_conf['Country/Region'] == countryes[0])])
+
+df_rec_hude = pd.DataFrame(df_rec.loc[(df_conf['Country/Region'] == countryes[0])])
+
+
+# de = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == countryes[1])])
+# hu.append(de)
+
+# head = np.array(conf.columns[4:])
+# print(head)
+# hu = np.argwhere(np_conf == countryes[0])
+# hu_y = hu[0, 0]
+# hu_sor = np_conf[129, 4:]
+# head.append(hu_sor)
+
+# df_conf_hude = pd.DataFrame([
+    # [df_conf.loc[(df_conf['Country/Region'] == countryes[0])]],
+    # [df_conf.loc[(df_conf['Country/Region'] == countryes[1])]]
+    # ])
+
+
+# print(hu[0, 0])
+# print(hu_sor)
+# print(head)
 
 # print(df_conf_hude.index)
 # print(df_conf_hude.columns[4:])
 t = pd.to_datetime(df_conf_hude.columns[4:])
-v = df_conf_hude.values[0, 4:]
+v_c = df_conf_hude.values[0, 4:]
+v_d = df_death_hude.values[0, 4:]
+v_r = df_rec_hude.values[0, 4:]
+
 # v = df_conf_hude.index[4:]
 
 
-print(t)
-print(v)
-
-
-plt.plot(t, v)
+# print(t)
+# print(v)
+#
+#
+plt.plot(t, v_c, 'r', label='Regisztralt beteg')
+plt.plot(t, v_d, 'k', label='Halott')
+plt.plot(t, v_r, 'g', label='Gyogyult')
 plt.suptitle('Koronavirus terjedese Magyarorszagon')
 plt.xlabel('Datum')
 plt.ylabel('Regisztralt esetek szama')
+plt.legend()
 plt.show()
 
 
