@@ -3,8 +3,9 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
+countryes = ['Hungary', 'Germany']
+pop = [10, 83]
 
-# url = 'https://data.humdata.org/hxlproxy/data/download/time_series-ncov-Confirmed.csv?dest=data_edit&filter01=explode&explode-header-att01=date&explode-value-att01=value&filter02=rename&rename-oldtag02=%23affected%2Bdate&rename-newtag02=%23date&rename-header02=Date&filter03=rename&rename-oldtag03=%23affected%2Bvalue&rename-newtag03=%23affected%2Binfected%2Bvalue%2Bnum&rename-header03=Value&filter04=clean&clean-date-tags04=%23date&filter05=sort&sort-tags05=%23date&sort-reverse05=on&filter06=sort&sort-tags06=%23country%2Bname%2C%23adm1%2Bname&tagger-match-all=on&tagger-default-tag=%23affected%2Blabel&tagger-01-header=province%2Fstate&tagger-01-tag=%23adm1%2Bname&tagger-02-header=country%2Fregion&tagger-02-tag=%23country%2Bname&tagger-03-header=lat&tagger-03-tag=%23geo%2Blat&tagger-04-header=long&tagger-04-tag=%23geo%2Blon&header-row=1&url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_19-covid-Confirmed.csv'
 
 url_c = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
 
@@ -12,99 +13,75 @@ url_d = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%
 
 url_r = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv'
 
-
-#url = '/home/buco/github/git/COVID_19/time_series-ncov-Confirmed.csv'
-
-# url = 'COVID_19/time_series-ncov-Confirmed.csv'
-
-conf = pd.read_csv(url_c)
-death = pd.read_csv(url_d)
-rec = pd.read_csv(url_r)
-
-df_conf = pd.DataFrame(conf)
-df_death = pd.DataFrame(death)
-df_rec = pd.DataFrame(rec)
-
-# np_conf = np.array(conf)
-# np_death = np.array(death)
-# np_rec = np.array(rec)
+def prep(url):
+    # Index=Countries, Columns=Datum, Values=Values
+    df = pd.read_csv(url)
+    df.set_index('Country/Region', inplace=True)
+    df.drop(columns=['Province/State', 'Lat', 'Long'], inplace=True)
+    return df
 
 
+conf = prep(url_c)
+death = prep(url_d)
+rec = prep(url_r)
 
-# print(df_conf)
-# print(df_conf.head(9))
+hu_c = conf.loc[countryes[0]]
+# print(conf_hu)
+hu_d = death.loc[countryes[0]]
+hu_r = rec.loc[countryes[0]]
 
-# print 'head(): \n', df_cvd.head(9), '\n'
-# print 'sample(): \n', df_cvd.sample(9), '\n'
-# print 'tail(): \n', df_cvd.tail(9), '\n'
-
-
-# df_conf_hude = pd.DataFrame(df_conf.loc[df_conf['Country/Region'] == 'Hungary'])
-
-# df_conf_hude = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == 'Hungary')])
-
-countryes = ['Hungary', 'Germany']
-
-# df_conf_hude = pd.DataFrame(df_conf.head(0))
-
-df_conf_hude = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == countryes[0])])
-
-df_death_hude = pd.DataFrame(df_death.loc[(df_conf['Country/Region'] == countryes[0])])
-
-df_rec_hude = pd.DataFrame(df_rec.loc[(df_conf['Country/Region'] == countryes[0])])
-
-
-# de = pd.DataFrame(df_conf.loc[(df_conf['Country/Region'] == countryes[1])])
-# hu.append(de)
-
-# head = np.array(conf.columns[4:])
-# print(head)
-# hu = np.argwhere(np_conf == countryes[0])
-# hu_y = hu[0, 0]
-# hu_sor = np_conf[129, 4:]
-# head.append(hu_sor)
-
-# df_conf_hude = pd.DataFrame([
-    # [df_conf.loc[(df_conf['Country/Region'] == countryes[0])]],
-    # [df_conf.loc[(df_conf['Country/Region'] == countryes[1])]]
-    # ])
-
-
-# print(hu[0, 0])
-# print(hu_sor)
-# print(head)
+de_c = conf.loc[countryes[1]]
+# print(conf_hu)
+de_d = death.loc[countryes[1]]
+de_r = rec.loc[countryes[1]]
 
 # print(df_conf_hude.index)
 # print(df_conf_hude.columns[4:])
-t = pd.to_datetime(df_conf_hude.columns[4:])
-v_c = df_conf_hude.values[0, 4:]
-v_d = df_death_hude.values[0, 4:]
-v_r = df_rec_hude.values[0, 4:]
+# t = pd.to_datetime(conf.columns)
 
-# v = df_conf_hude.index[4:]
+t = pd.to_datetime(hu_c.index)
+
+v_hu_c = hu_c.values/pop[0]
+v_hu_d = hu_d.values/pop[0]
+v_hu_r = hu_r.values/pop[0]
+
+v_de_c = de_c.values/pop[1]
+v_de_d = de_d.values/pop[1]
+v_de_r = de_r.values/pop[1]
 
 
-# print(t)
-# print(v)
-#
-#
-plt.plot(t, v_c, 'r', label='Regisztralt beteg')
-plt.plot(t, v_d, 'k', label='Halott')
-plt.plot(t, v_r, 'g', label='Gyogyult')
-plt.suptitle('Koronavirus terjedese Magyarorszagon')
-plt.xlabel('Datum')
-plt.ylabel('Regisztralt esetek szama')
+
+plt.subplot(1, 2, 1)
+plt.plot(t, v_hu_c, 'r', label='Beteg HU')
+plt.plot(t, v_hu_d, 'silver', label='Halott HU')
+plt.plot(t, v_hu_r, 'g', label='Gyogyult HU')
 plt.legend()
+
+# plt.yscale('log')
+plt.yscale('linear')
+
+plt.suptitle('Koronavirus terjedese')
+plt.xlabel('Datum')
+plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
+
+
+
+plt.subplot(1, 2, 2)
+plt.plot(t, v_de_c, 'b', label='Beteg DE')
+plt.plot(t, v_de_r, 'yellow', label='Gyogyult DE')
+plt.plot(t, v_de_d, 'k', label='Halott DE')
+plt.legend()
+
+# plt.yscale('log')
+plt.yscale('linear')
+
+plt.suptitle('Koronavirus terjedese')
+plt.xlabel('Datum')
+plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
+
+
+
 plt.show()
 
-
-
-# print 'len: \n', len(df_cvd), '\n'
-# print 'describe(): \n', df_cvd.describe(), '\n'
-# print 'sum(): \n', df_cvd.sum(), '\n'
-# print 'count(): \n', df_cvd.count(), '\n'
-# print 'median(): \n', df_cvd.median(), '\n'
-# print 'quantile(): \n', df_cvd.quantile(), '\n'
-# print 'min(): \n', df_cvd.min(), '\n'
-# print 'max(): \n', df_cvd.max(), '\n'
-# print 'mean(): \n', df_cvd.mean(), '\n'
+'''
+'''
