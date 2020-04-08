@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 countryes = ['Hungary', 'Germany']
 pop = [10, 83]
-
+# pop = [1, 1]
 
 url_c = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
 
@@ -41,17 +41,15 @@ de_r = rec.loc[countryes[1]]
 
 t = pd.to_datetime(hu_c.index)
 
-v_hu_c = hu_c.values/pop[0]
-v_hu_d = hu_d.values/pop[0]
-v_hu_r = hu_r.values/pop[0]
+v_hu_c = hu_c.values
+v_hu_d = hu_d.values
+v_hu_r = hu_r.values
 
-v_de_c = de_c.values/pop[1]
-v_de_d = de_d.values/pop[1]
-v_de_r = de_r.values/pop[1]
+v_de_c = de_c.values
+v_de_d = de_d.values
+v_de_r = de_r.values
 
-
-
-plt.subplot(1, 2, 1)
+plt.subplot(2, 2, 1)
 plt.plot(t, v_hu_c, 'r', label='Beteg HU')
 plt.plot(t, v_hu_d, 'silver', label='Halott HU')
 plt.plot(t, v_hu_r, 'g', label='Gyogyult HU')
@@ -62,11 +60,10 @@ plt.yscale('linear')
 
 plt.suptitle('Koronavirus terjedese')
 plt.xlabel('Datum')
-plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
+plt.ylabel('Regisztralt esetek szama')
 
 
-
-plt.subplot(1, 2, 2)
+plt.subplot(2, 2, 2)
 plt.plot(t, v_de_c, 'b', label='Beteg DE')
 plt.plot(t, v_de_r, 'yellow', label='Gyogyult DE')
 plt.plot(t, v_de_d, 'k', label='Halott DE')
@@ -77,8 +74,55 @@ plt.yscale('linear')
 
 plt.suptitle('Koronavirus terjedese')
 plt.xlabel('Datum')
+plt.ylabel('Regisztralt esetek szama')
+
+v_hu_c_pop = hu_c.values/pop[0]
+v_hu_d_pop = hu_d.values/pop[0]
+v_hu_r_pop = hu_r.values/pop[0]
+
+v_de_c_pop = de_c.values/pop[1]
+v_de_d_pop = de_d.values/pop[1]
+v_de_r_pop = de_r.values/pop[1]
+
+
+
+plt.subplot(2, 2, 3)
+plt.plot(t, v_hu_c_pop, 'r', label='Beteg HU')
+plt.plot(t, v_hu_d_pop, 'silver', label='Halott HU')
+plt.plot(t, v_hu_r_pop, 'g', label='Gyogyult HU')
+plt.legend()
+
+# plt.yscale('log')
+plt.yscale('linear')
+
+plt.suptitle('Koronavirus terjedese')
+plt.xlabel('Datum')
 plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
 
+
+plt.subplot(2, 2, 4)
+plt.plot(t, v_de_c_pop, 'b', label='Beteg DE')
+plt.plot(t, v_de_r_pop, 'yellow', label='Gyogyult DE')
+plt.plot(t, v_de_d_pop, 'k', label='Halott DE')
+plt.legend()
+
+# plt.yscale('log')
+plt.yscale('linear')
+
+plt.suptitle('Koronavirus terjedese')
+plt.xlabel('Datum')
+plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
+
+
+
+
+
+# plt.subplot(1, 3, 2,)
+# plt.bar(countryes, pop, width=0.3)
+# plt.legend()
+
+# countryes = ['Hungary', 'Germany']
+# pop = [10, 83]
 
 
 plt.show()
