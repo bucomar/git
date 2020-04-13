@@ -3,19 +3,45 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-url = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
+conf = pd.DataFrame([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+death = pd.DataFrame([['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'j']])
+rec = pd.DataFrame([[1.1, 2.2, 3.3], [4.4, 5.5, 6.6], [7.7, 8.8, 9.9]])
 
+print(conf)
+print
+print(death)
+print
+print(rec)
+print
+
+
+''' multiindexed columns
+
+2020.04.10, 2020.04.11, 2020.04.12,
+c, d, r,    c, d, r,    c, d, r,
+1, 2, 3,    4, 5, 6,    7, 8, 9,
+'''
+df = pd.DataFrame([])
+
+
+
+
+print(df)
+
+
+
+'''
 def prep(link):
 
     df = pd.read_csv(link)
-    # csv.set_index('Country/Region')
-    # print(df, 'Type csv: ', type(df))
-    # print(csv)
+    csv.set_index('Country/Region')
+    print(df, 'Type csv: ', type(df))
+    print(csv)
 
-    # ind = np.array(df)
-    # ind = ind[0:, 1]
+    ind = np.array(df)
+    ind = ind[0:, 1]
 
-    # df = pd.DataFrame(csv)
+    df = pd.DataFrame(csv)
 
     df.set_index('Country/Region', inplace=True)
 
@@ -26,20 +52,16 @@ x = prep(url)
 
 print(x,  'Type: ', type(x))
 
-# conf = prep(url_c)
-# death = prep(url_d)
-# rec = prep(url_r)
+conf = prep(url_c)
+death = prep(url_d)
+rec = prep(url_r)
 
-# print('conf type: ', type(conf))
+print('conf type: ', type(conf))
 
-# conf_hu = conf.loc[countryes]
-# print(conf_hu)
+conf_hu = conf.loc[countryes]
+print(conf_hu)
 
-
-
-
-
-
+'''
 
 '''
 
