@@ -50,9 +50,9 @@ v_de_d = de_d.values
 v_de_r = de_r.values
 
 plt.subplot(2, 2, 1)
-plt.plot(t, v_hu_c, 'r', label='Beteg HU')
-plt.plot(t, v_hu_d, 'silver', label='Halott HU')
-plt.plot(t, v_hu_r, 'g', label='Gyogyult HU')
+plt.plot(t, v_hu_c, label='Beteg HU')
+plt.plot(t, v_hu_d, label='Halott HU')
+plt.plot(t, v_hu_r, label='Gyogyult HU')
 plt.legend()
 
 # plt.yscale('log')
@@ -64,9 +64,9 @@ plt.ylabel('Regisztralt esetek szama')
 
 
 plt.subplot(2, 2, 2)
-plt.plot(t, v_de_c, 'b', label='Beteg DE')
-plt.plot(t, v_de_r, 'yellow', label='Gyogyult DE')
-plt.plot(t, v_de_d, 'k', label='Halott DE')
+plt.plot(t, v_de_c, label='Beteg DE')
+plt.plot(t, v_de_r, label='Gyogyult DE')
+plt.plot(t, v_de_d, label='Halott DE')
 plt.legend()
 
 # plt.yscale('log')
@@ -87,9 +87,9 @@ v_de_r_pop = de_r.values/pop[1]
 
 
 plt.subplot(2, 2, 3)
-plt.plot(t, v_hu_c_pop, 'r', label='Beteg HU')
-plt.plot(t, v_hu_d_pop, 'silver', label='Halott HU')
-plt.plot(t, v_hu_r_pop, 'g', label='Gyogyult HU')
+plt.plot(t, v_hu_c_pop, label='Beteg HU')
+plt.plot(t, v_hu_d_pop, label='Halott HU')
+plt.plot(t, v_hu_r_pop, label='Gyogyult HU')
 plt.legend()
 
 # plt.yscale('log')
@@ -101,9 +101,9 @@ plt.ylabel('Regisztralt esetek szama / Nepesseg / 1.000.000')
 
 
 plt.subplot(2, 2, 4)
-plt.plot(t, v_de_c_pop, 'b', label='Beteg DE')
-plt.plot(t, v_de_r_pop, 'yellow', label='Gyogyult DE')
-plt.plot(t, v_de_d_pop, 'k', label='Halott DE')
+plt.plot(t, v_de_c_pop, label='Beteg DE')
+plt.plot(t, v_de_r_pop, label='Gyogyult DE')
+plt.plot(t, v_de_d_pop, label='Halott DE')
 plt.legend()
 
 # plt.yscale('log')

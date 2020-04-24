@@ -1,7 +1,21 @@
 # NiderschlagSpendenDaten von KOSTRA
 import numpy as np
 import pandas as pd
+import zipfile as zp
 
+url_nro = ('0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320')
+
+url = []
+
+for i in range(len(url_nro)):
+    url.append('https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D'+url_nro[i]+'.csv.zip')
+
+
+
+
+
+
+'''
 coord_b = 53.5928618
 coord_l = 9.4709494
 
@@ -20,7 +34,9 @@ d0045 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0045.csv"))
 d0060 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0060.csv"))
 d0090 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0090.csv"))
 
-d0005.describe()
-d0005.head()
-d0005.tail(5)
+print(d0005.describe())
+print(d0005.head(9))
+print(d0005.tail(9))
 # cxycxycxy
+
+'''
