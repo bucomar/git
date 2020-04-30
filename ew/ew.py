@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
+# adatvesztes ellen
 
 import numpy as np
 import math as mt
@@ -72,30 +71,30 @@ print()
 
 
 def f_mm():
-    # Main Menü    
+    # Main Menü
     mm = input('Main menu \n'
               '1 - New Project \n'
-              '2 - Load Project \n' 
+              '2 - Load Project \n'
               '0 - Exit Project \n \n')
-    
-    
-    # prj == Projekt, Projektdatei    
+
+
+    # prj == Projekt, Projektdatei
     if mm == '1':
         prj = np.array([[1, 2,], [3, 4]])
         f_k()
         print('Project created. \n')
         print(prj, ' \n \n')
         f_pm()
-    
+
     # read from csv
     elif mm == '2':
         print('Project loaded. \n \n')
         f_pm()
-            
+
     elif mm == '0':
         print("Tschüß! \n \n")
         quit()
-    
+
     else:
         print('Siehe instructionen!!! \n \n')
         f_mm()
@@ -106,8 +105,8 @@ def f_pm():
              '1 - Add Falleitung \n'
              '2 - Add Sanitär \n'
              '9 - Save Project \n'
-             '0 - Exit to Main Menu  \n \n')      
-    
+             '0 - Exit to Main Menu  \n \n')
+
     if pm == '0':
         s = input('Sawe Project? \n'
         				'y - Sawe \n'
@@ -118,11 +117,11 @@ def f_pm():
         	print('Project dos not saved. \n \n')
         else:
         	print('Siehe instructionen!!! \n \n')
-        	f_mm() 
-        
+        	f_mm()
+
         print('Return to Main Menu. \n \n')
         f_mm()
-        
+
     elif pm == '1':
         print('Falleitung added. \n \n')
         f_pm()
@@ -151,21 +150,20 @@ def f_k():
     print('k = ' + k)
 
 
-# 
+#
 # #Save 2D numpy array to csv file
 # #np.savetxt('2darray.csv', arr2D, delimiter=',', fmt='%d')
 
 #def f_swf():
     #SW Falleitung
     #san =
-    
+
 ## Szennyvíz elvezető berendezések
 ## Schmutzwassermenge
 
 def f_qww(k, du):
     qww = float(k)*mt.sqrt(float(du))
-    return qww 
+    return qww
 
 #Start
 f_mm()
-

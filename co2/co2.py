@@ -1,3 +1,5 @@
+# adatvesztes ellen
+
 import pandas as pd
 
 global_co2 = pd.read_csv('global.1751_2014.csv')

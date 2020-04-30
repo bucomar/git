@@ -1,3 +1,4 @@
+# adatvesztes ellen
 # NiderschlagSpendenDaten von KOSTRA
 import numpy as np
 import pandas as pd
