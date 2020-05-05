@@ -1,5 +1,4 @@
-# adatvesztes ellen OK
-# NiderschlagSpendenDaten von KOSTRA
+##	NiderschlagSpendenDaten von KOSTRA
 import numpy as np
 import pandas as pd
 from wget import download as dl
@@ -8,7 +7,7 @@ import subprocess as cmd
 import glob
 
 ##	url list
-url_nro = ('0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320')
+url_nro = ['0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320']
 print('url_nro pype is :', type(url_nro))
 
 url = []
@@ -16,7 +15,7 @@ url = []
 for i in range(len(url_nro)):
 	url.append('https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D'+url_nro[i]+'.csv.zip')
 
-##	download & extract csv-s, del zips
+##	download zips extract csv-s, del zips
 def get_csv(url):
     # download, unzip, delet_zip
 	myzip = dl(url)
@@ -28,9 +27,13 @@ def get_csv(url):
 	cmd.run('rm *.zip', check=True, shell=True)
 
 ##	dont delete!!!	##
-## for i in range(len(url_nro)):
-##	get_csv(url[i])
+for i in range(len(url_nro)):
+	get_csv(url[i])
 ##	dont delete!!!	##
+
+############################
+### !!! 3d np.array vagy 3d pd.df !!! ###
+############################
 
 ##	read csv-s
 def get_df(csv):
@@ -44,14 +47,31 @@ def get_df(csv):
 	#print(type(df)) 
 	return df
 
+##	df names
+df_names = []
+
+for i in url_nro:
+	df_names.append(str('df_'+i)) 
+
+# print(df_names)
+
+##	make dfs
+for i in range(len(url_nro)):
+		df = get_df(url_nro[i]) 
+		print(df)
+	
+print(df_0090)
+
+
+##	dont delete!!!	##
+'''
 for i in url_nro:
 	#get_df(url_nro[i])
 	exec(f'df_{i} = get_df(i)')
 	#exec(f'print(df_{i})')
+'''
+##	dont delete!!!	##
 
-df_name = 'df_'+url_nro[6]
-print(df_name)
-print(df_0060)
 
 
 
