@@ -6,6 +6,18 @@ from zipfile import ZipFile as zip
 import subprocess as cmd
 import glob
 
+##	make index_rc
+
+coord_b = 53.5928618
+coord_l = 9.4709494
+
+col = 21
+row = 31
+
+index_rc = str(col) + '0' + str(row)
+print ('col: ', col, '\n', 'row: ', row, '\n', 'index_rc: ', index_rc)
+
+
 ##	url list
 url_nro = ['0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320']
 print('url_nro pype is :', type(url_nro))
@@ -15,38 +27,75 @@ url = []
 for i in range(len(url_nro)):
 	url.append('https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D'+url_nro[i]+'.csv.zip')
 
+##	csv name generator
+def csv_name(nro):
+	csv = str('StatRR_KOSTRA-DWD-2010R_D'+nro+'.csv')
+	return csv
+
+##	df name generator
+def df_name(nro):
+	df = str('df'+nro+'.csv')
+	return df
+
+
+	
+			
+##	url + nro generator
+
+#def nr_gen(pos):
+#	link = url[pos]
+#	nro = url_nro[pos]
+#	return link, nro
+
+#print(nr_gen(0))
+
 ##	download zips extract csv-s, del zips
-def get_csv(url):
+def get_csv_df(pos):
     # download, unzip, delet_zip
-	myzip = dl(url)
+	myzip = dl(url[pos])
 	print(myzip)
 	with zip(myzip, 'r') as my_zip:
 		my_zip.printdir()
 		my_zip.extractall('temp')
 	cmd.run('pwd', check=True, shell=True)
 	cmd.run('rm *.zip', check=True, shell=True)
-
-##	dont delete!!!	##
-for i in range(len(url_nro)):
-	get_csv(url[i])
-##	dont delete!!!	##
-
-############################
-### !!! 3d np.array vagy 3d pd.df !!! ###
-############################
-
-##	read csv-s
-def get_df(csv):
-	csv = str('**/*'+csv+'.csv')
-	#print(csv)
+	csv = str('**/*'+url_nro[pos]+'.csv')
 	csv = glob.glob(csv)
-	#print(csv)
+	print(csv)
 	## !!!	index = col index_rc	!!! ##
-	df = pd.DataFrame(pd.read_csv(csv[0]))
-	#print(df)
-	#print(type(df)) 
+	df = pd.DataFrame(pd.read_csv(csv[0], sep = ';'))
+	#cmd.run('rmdir temp', check=True, shell=True) 
 	return df
 
+
+
+##	row export to
+			#INDEX_RC 
+
+def df_row_exp(from_df, rc_index, to_df):
+	to_df = pd.concat([to_df, from_df.loc[from_df['INDEX_RC'] == int(rc_index)]])
+	return to_df
+
+
+##	make local_RS
+
+df = get_csv_df(0)
+local_RS = pd.DataFrame(data = None, columns = df.columns)
+local_RS = df_row_exp(df, index_rc, local_RS)
+
+for i in range(1, len(url_nro)):
+	df = get_csv_df(i)
+	local_RS = df_row_exp(df, index_rc, local_RS)
+
+
+# !!!local_RS.reindex(url_nro)
+
+print(local_RS) 
+print(type(local_RS))
+
+
+
+'''
 ##	df names
 df_names = []
 
@@ -55,13 +104,15 @@ for i in url_nro:
 
 # print(df_names)
 
+
+
 ##	make dfs
 for i in range(len(url_nro)):
 		df = get_df(url_nro[i]) 
 		print(df)
 	
 print(df_0090)
-
+'''
 
 ##	dont delete!!!	##
 '''
@@ -73,36 +124,3 @@ for i in url_nro:
 ##	dont delete!!!	##
 
 
-
-
-##	make index_rc
-
-coord_b = 53.5928618
-coord_l = 9.4709494
-
-col = 21
-row = 31
-
-index_rc = str(col) + '0' + str(row)
-print ('index_rc: ', index_rc)
-
-##	make local_RW
-
-
-
-'''
-d0005 = pd.DataFrame(pd.read_csv('ew/strsp/StatRR_D0005.csv'))
-d0010 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0010.csv"))
-d0015 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0015.csv"))
-d0020 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0020.csv"))
-d0030 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0030.csv"))
-d0045 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0045.csv"))
-d0060 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0060.csv"))
-d0090 = pd.DataFrame(pd.read_csv("ew/strsp/StatRR_D0090.csv"))
-
-print(d0005.describe())
-print(d0005.head(9))
-print(d0005.tail(9))
-# cxycxycxy
-
-'''
