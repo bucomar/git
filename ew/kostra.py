@@ -88,39 +88,10 @@ for i in range(1, len(url_nro)):
 	local_RS = df_row_exp(df, index_rc, local_RS)
 
 
-# !!!local_RS.reindex(url_nro)
+local_RS.index = url_nro
+local_RS.index.name = 'Regendauer'
+local_RS.columns.name = 'Regenhaufigkeit'
 
 print(local_RS) 
 print(type(local_RS))
-
-
-
-'''
-##	df names
-df_names = []
-
-for i in url_nro:
-	df_names.append(str('df_'+i)) 
-
-# print(df_names)
-
-
-
-##	make dfs
-for i in range(len(url_nro)):
-		df = get_df(url_nro[i]) 
-		print(df)
-	
-print(df_0090)
-'''
-
-##	dont delete!!!	##
-'''
-for i in url_nro:
-	#get_df(url_nro[i])
-	exec(f'df_{i} = get_df(i)')
-	#exec(f'print(df_{i})')
-'''
-##	dont delete!!!	##
-
 
