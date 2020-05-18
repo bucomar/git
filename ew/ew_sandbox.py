@@ -1,45 +1,47 @@
-import pandas as pd
+##	NiderschlagSpendenDaten von KOSTRA
 import numpy as np
+import pandas as pd
+from wget import download as dl
+from zipfile import ZipFile as zip
+import subprocess as cmd
+import glob
+
+##	make index_rc
 
 
-arr = np.arange(20).reshape(4, 5)
-df = pd.DataFrame(arr, columns=['A', 'B', 'C', 'D', 'E'])
-#print(df.columns)
-#print(df.index)
-#print(type(df.index))
-print(df, '\n')
+#coord_b = 53.5928618
+#coord_l = 9.4709494
 
-#df.index = ['p', 'q', 'r', 's']
+cord_b = input('Breite: ##.####### ')
+cord_bl = input('La:nge: ##.####### ')
 
-#df.rename_axis('szam')
-#df.rename_axis('betu', axis=1)
+URL_COO = https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/KOSTRA-DWD-2010R_geog_Bezug.xlsx
 
-#newindex = [5, 6, 7, 8]
-#newindex = ['p', 'q', 'r', 's']
-#df.set_index(newindex)
+col = 21
+row = 31
 
-print(df, '\n')
+index_rc = str(col) + '0' + str(row)
+print ('col: ', col, '\n', 'row: ', row, '\n', 'index_rc: ', index_rc)
 
-print('**************************')
+##	download zips extract csv-s, del zips
+def get_pos():
+    # input coordnits, download, unzip, delet_zip
+	
+	myzip = dl(url[pos])
+	print(myzip)
+	with zip(myzip, 'r') as my_zip:
+		my_zip.printdir()
+		my_zip.extractall('temp')
+	cmd.run('pwd', check=True, shell=True)
+	cmd.run('rm *.zip', check=True, shell=True)
+	csv = str('**/*'+url_nro[pos]+'.csv')
+	csv = glob.glob(csv)
+	print(csv)
+	## !!!	index = col index_rc	!!! ##
+	df = pd.DataFrame(pd.read_csv(csv[0], sep = ';'))
+	#cmd.run('rmdir temp', check=True, shell=True) 
+	return df
 
-#print(df.a)
-#print(df[0:3])
-#print(df.loc[:, ['A', 'B']])
-df_uj = df.loc[[0], :]
-print(df_uj, '\n')
 
-
-
-#df_ujabb = df.loc[[1], :]
-#print(df_ujabb, '\n')
-
-#df_uj = pd.concat([df_uj, df.loc[[1], :]])
-
-for i in range(1, len(df.index), 1):
-	df_uj = pd.concat([df_uj, df.loc[[i], :]])
-	print(i, '\n', df_uj, '\n')
-
-print(df_uj, '\n')
-print('', '\n')
 
 
