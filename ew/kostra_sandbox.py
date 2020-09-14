@@ -1,5 +1,19 @@
 import pandas as pd
 
+
+LOCAL_RS = pd.read_csv('ew/kostra_21031.csv', sep=',', index_col=('Regendauer'))
+print(LOCAL_RS)
+# LOCAL_RS.to_excel('kostra_21031.xls')
+
+
+# def mm_to_lsha(df):
+
+a_row = LOCAL_RS.loc[[5]]
+print(a_row)
+
+a_row = a_row.apply(lambda i: i*100*100/60/5)
+print(a_row)
+
 I_RC = 21031
 
 # tab1 = pd.DataFrame([
@@ -26,9 +40,9 @@ I_RC = 21031
 
 df = pd.DataFrame()
 
-df1 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0005.csv', sep=';', index_col=('INDEX_RC'))
-df2 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0010.csv', sep=';', index_col=('INDEX_RC'))
-df3 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0015.csv', sep=';', index_col=('INDEX_RC'))
+df1 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0005.csv', sep=';', index_col='INDEX_RC')
+df2 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0010.csv', sep=';', index_col='INDEX_RC')
+df3 = pd.read_csv('temp/StatRR_KOSTRA-DWD-2010R_D0015.csv', sep=';', index_col='INDEX_RC')
 # print(table.loc[table['INDEX_RC'] == 21031])
 # print(df.index)
 # print(df.iloc[5:10, :])
