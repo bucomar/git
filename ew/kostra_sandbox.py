@@ -1,4 +1,12 @@
 import pandas as pd
+import zipfile as zip
+
+# my_zipfile = zip.ZipFile('ew/StatRR_KOSTRA-DWD-2010R_D0005.csv.zip')
+my_zipfile = zip.ZipFile('https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D0005.csv.zip')
+my_zipfile.extractall()
+# https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D0005.csv.zip
+
+
 
 
 LOCAL_RS = pd.read_csv('ew/kostra_21031.csv', sep=',', index_col=('Regendauer'))
