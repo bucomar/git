@@ -7,7 +7,7 @@ from bokeh.io import output_file, show
 from bokeh.models import HoverTool
 
 countryes = ['Hungary', 'Germany']
-pop = [10, 83]
+pop = [1000, 8300]
 # pop = [1, 1]
 
 url_c = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_confirmed_global.csv&filename=time_series_covid19_confirmed_global.csv'
@@ -57,17 +57,26 @@ v_de_r_pop = de_r.values/pop[1]
 
 hover = HoverTool(tooltips='@y', mode='vline')
 
-p = figure(title='COVID 19', x_axis_label='Dátum', x_axis_type='datetime', y_axis_label='Esetek száma', tools=[hover, 'crosshair'])
+p = figure(title='COVID 19', x_axis_label='Dátum', x_axis_type='datetime', y_axis_label='Esetek száma / 10 000 Fő', tools=[hover, 'crosshair'])
 
-p.background_fill_color='lightgreen'
+# p.background_fill_color='lightgreen'
+
+# p.line(t, v_hu_c, legend_label='Magyar betegek', color='red')
+# p.line(t, v_hu_r, legend_label='Magyar gyógyultak', color='blue')
+# p.line(t, v_hu_d, legend_label='Magyar halottak', color='black')
+#
+# p.line(t, v_de_c, legend_label='Német betegek', color='purple')
+# p.line(t, v_de_r, legend_label='Német gyógyultak', color='green')
+# p.line(t, v_de_d, legend_label='Német halottak', color='orangered')
+
 
 p.line(t, v_hu_c_pop, legend_label='Magyar betegek', color='red')
 p.line(t, v_hu_r_pop, legend_label='Magyar gyógyultak', color='blue')
 p.line(t, v_hu_d_pop, legend_label='Magyar halottak', color='black')
-
-# p.line(t, v_de_c_pop, legend_label='Német betegek', color='purple')
-# p.line(t, v_de_r_pop, legend_label='Német gyógyultak', color='green')
-# p.line(t, v_de_d_pop, legend_label='Német halottak', color='orangered')
+#
+p.line(t, v_de_c_pop, legend_label='Német betegek', color='purple')
+p.line(t, v_de_r_pop, legend_label='Német gyógyultak', color='green')
+p.line(t, v_de_d_pop, legend_label='Német halottak', color='orangered')
 
 
 
