@@ -61,7 +61,7 @@ def get_csv_df(pos):
 	# print(myzip)
 	with zip.ZipFile(myzip, 'r') as my_zip:
 		# my_zip.printdir()
-		my_zip.extractall('ew/temp')
+		my_zip.extractall('temp')
 	# cmd.run('pwd', check=True, shell=True)
 	cmd.run('rm *.zip', check=True, shell=True)
 	mycsv = str('**/*'+REGEN_DAUER[pos]+'.csv')
@@ -97,9 +97,9 @@ LOCAL_RS.columns.name = 'Regenhaufigkeit'
 
 # print(LOCAL_RS)
 
-LOCAL_RS_FILE_NAME = str('ew/kostra_' + str(I_RC) + '_l.csv')
+LOCAL_RS_FILE_NAME = str('kostra_' + str(I_RC) + '_l.csv')
 LOCAL_RS.to_csv(LOCAL_RS_FILE_NAME, sep='\t', decimal=',')
 
-cmd.run('rm -r ew/temp', check=True, shell=True)
+cmd.run('rm -r temp', check=True, shell=True)
 
 print(LOCAL_RS_FILE_NAME + ' ist fertig!')

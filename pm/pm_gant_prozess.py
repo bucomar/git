@@ -27,7 +27,7 @@ def menu():
 		elif mi_legyen == 'x':
 			print('main_menu()\n')
 			break
-		
+
 		else:
 			print('Nem ertem! Valassz a listabol!\n')
 
