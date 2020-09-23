@@ -2,3 +2,5 @@ pip freeze > requirements.txt
 
 export FLASK_APP=*index.py
 flask run
+
+urllib Packge: https://docs.python.org/3.8/howto/urllib2.html
