@@ -6,9 +6,19 @@ deactivate
 ## remove dir
 rm -r my_dir
 
-pip freeze > requirements.txt
+## requirements.txt
+pip freeze > req.txt
+cat req.txt
 
+## Flask
 export FLASK_APP=*index.py
 flask run
 
 urllib Packge: https://docs.python.org/3.8/howto/urllib2.html
+
+## Jupyter
+pip install notebook
+jupyter notebook
+
+pip install jupyterlab
+jupyterlab
