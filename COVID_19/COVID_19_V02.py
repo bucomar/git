@@ -82,6 +82,6 @@ p.line(t, v_de_d_pop, legend_label='Német halottak', color='orangered')
 
 p.legend.location='top_left'
 
-output_file('./COVID_19/COVID_19.html')
+output_file('./COVID_19/templates/COVID_19.html')
 
 show(p)

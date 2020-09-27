@@ -1,3 +1,11 @@
+## virtualenv
+virtualenv env_neve
+source env_neve/bin/activate
+deactivate
+
+## remove dir
+rm -r my_dir
+
 pip freeze > requirements.txt
 
 export FLASK_APP=*index.py
