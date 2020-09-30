@@ -71,12 +71,12 @@ p = figure(title='COVID 19', x_axis_label='Dátum', x_axis_type='datetime', y_ax
 
 
 p.line(t, v_hu_c_pop, legend_label='Magyar betegek', color='red')
-p.line(t, v_hu_r_pop, legend_label='Magyar gyógyultak', color='blue')
-p.line(t, v_hu_d_pop, legend_label='Magyar halottak', color='black')
+p.line(t, v_hu_r_pop, legend_label='Magyar gyógyultak', line_dash='dashed', color='blue')
+p.line(t, v_hu_d_pop, legend_label='Magyar halottak', line_dash='dotted', color='black')
 #
 p.line(t, v_de_c_pop, legend_label='Német betegek', color='purple')
-p.line(t, v_de_r_pop, legend_label='Német gyógyultak', color='green')
-p.line(t, v_de_d_pop, legend_label='Német halottak', color='orangered')
+p.line(t, v_de_r_pop, legend_label='Német gyógyultak', line_dash='dashed', color='green')
+p.line(t, v_de_d_pop, legend_label='Német halottak', line_dash='dotted', color='orangered')
 
 
 
