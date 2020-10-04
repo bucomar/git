@@ -1,4 +1,3 @@
-# adatvesztes ellen
 
 import pandas as pd
 # import numpy as np
@@ -16,8 +15,9 @@ url_d = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%
 
 url_r = 'https://data.humdata.org/hxlproxy/api/data-preview.csv?url=https%3A%2F%2Fraw.githubusercontent.com%2FCSSEGISandData%2FCOVID-19%2Fmaster%2Fcsse_covid_19_data%2Fcsse_covid_19_time_series%2Ftime_series_covid19_recovered_global.csv&filename=time_series_covid19_recovered_global.csv'
 
+
 def prep(url):
-    # Index=Countries, Columns=Datum, Values=Values
+    """Index=Countries, Columns=Datum, Values=Values."""
     df = pd.read_csv(url)
     df.set_index('Country/Region', inplace=True)
     df.drop(columns=['Province/State', 'Lat', 'Long'], inplace=True)
@@ -78,9 +78,7 @@ p.line(t, v_de_c_pop, legend_label='Német betegek', color='purple')
 p.line(t, v_de_r_pop, legend_label='Német gyógyultak', line_dash='dashed', color='green')
 p.line(t, v_de_d_pop, legend_label='Német halottak', line_dash='dotted', color='orangered')
 
-
-
-p.legend.location='top_left'
+p.legend.location = 'top_left'
 
 output_file('./COVID_19/templates/COVID_19.html')
 
