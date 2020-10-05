@@ -6,8 +6,10 @@ deactivate
 ## remove dir
 rm -r my_dir
 
-## requirements.txt
-pip freeze > req.txt
+
+## pip3
+# requirements.txt
+pip3 freeze > req.txt
 cat req.txt
 
 ## Flask
@@ -29,3 +31,11 @@ jekyll new my-awesome-site
 cd my-awesome-site
 bundle exec jekyll serve
 # => Now browse to http://localhost:4000 
+
+## streamlit
+https://www.streamlit.io/gallery
+
+
+
+## popenv
+https://pipenv.pypa.io/en/latest/
