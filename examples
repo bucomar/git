@@ -35,7 +35,22 @@ bundle exec jekyll serve
 ## streamlit
 https://www.streamlit.io/gallery
 
+## Heroku
+https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
 
+sudo snap install heroku --classic
+heroku login
+git clone https://github.com/heroku/python-getting-started.git # ez a mintaprojekt
+cd python-getting-started
+heroku create
+git push heroku main
+heroku ps:scale web=1
+heroku open
 
-## pipenv
-https://pipenv.pypa.io/en/latest/
+mashogy:
+
+.
+├── app.py
+├── requirements.txt
+├── setup.sh
+└── Procfile
