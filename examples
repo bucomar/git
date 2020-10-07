@@ -43,7 +43,7 @@ heroku login
 git clone https://github.com/heroku/python-getting-started.git # ez a mintaprojekt
 cd python-getting-started
 heroku create
-git push heroku main
+git push heroku 'main' #vagyis a fő branzs pl master
 heroku ps:scale web=1
 heroku open
 
@@ -54,3 +54,5 @@ mashogy:
 ├── requirements.txt
 ├── setup.sh
 └── Procfile
+
+A webes felületen megy...
