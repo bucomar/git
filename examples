@@ -25,6 +25,13 @@ jupyter notebook
 pip install jupyterlab
 jupyterlab
 
+## Hydrogen
+# %% markdown
+# Szöveg
+
+# %% codecell
+print(df)
+
 ## Jekyll
 gem install bundler jekyll
 jekyll new my-awesome-site
@@ -56,3 +63,9 @@ mashogy:
 └── Procfile
 
 A webes felületen megy...
+
+## ZIP
+
+zf = zipfile.ZipFile('C:/Users/Desktop/THEZIPFILE.zip') 
+df = pd.read_csv(zf.open('intfile.csv'))
+zf.close()
