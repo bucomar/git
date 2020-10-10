@@ -9,8 +9,8 @@ rm -r my_dir
 
 ## pip3
 # requirements.txt
-pip3 freeze > req.txt
-cat req.txt
+pip3 freeze > requirements.txt
+cat requirements.txt
 
 ## Flask
 export FLASK_APP=*index.py
@@ -41,6 +41,8 @@ bundle exec jekyll serve
 
 ## streamlit
 https://www.streamlit.io/gallery
+streamlit run [filename]
+
 
 ## Heroku
 https://devcenter.heroku.com/articles/getting-started-with-python#deploy-the-app
@@ -69,3 +71,9 @@ A webes felületen megy...
 zf = zipfile.ZipFile('C:/Users/Desktop/THEZIPFILE.zip') 
 df = pd.read_csv(zf.open('intfile.csv'))
 zf.close()
+
+## pandas
+
+df.head()
+df.info()
+df.describe()

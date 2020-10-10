@@ -14,14 +14,44 @@ import pandas as pd
 ############################################
 ### KOSTRA Koordinaten hier schreiben!!! ###
 ############################################
-COL = 68 ###################################
-ROW = 20 ###################################
+# COL = 68 ###################################
+# ROW = 20 ###################################
 ############################################
 
 ############################################
 
-I_RC = int(str(COL) + '0' + str(ROW))
-print ('col: ', COL, '\n', 'row: ', ROW, '\n', 'index_rc: ', I_RC)
+# I_RC = int(str(COL) + '0' + str(ROW))
+# print ('col: ', COL, '\n', 'row: ', ROW, '\n', 'index_rc: ', I_RC)
+
+
+
+
+
+############################################
+### GEO Koordinaten hier schreiben!!! ######
+############################################
+x = 9.6755 # geog. Breite °N ###############
+y = 53.4646 # geog. Länge °O ###############
+############################################
+
+print('Kostra Daten einlesen.')
+
+URL_COORD = 'https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/KOSTRA-DWD-2010R_geog_Bezug.xlsx'
+
+SHEET = 'Raster_geog_Bezug'
+
+df = pd.read_excel(URL_COORD, sheet_name = SHEET)
+
+i_rc_row = df[ (df['X1_NW_GEO'] <= x) & (df['X4_NE_GEO'] >= x) & (df['Y1_NW_GEO'] >= y) & (df['Y2_SW_GEO'] <= y)]
+
+i_rc_row
+
+I_RC = i_rc_row.iloc[0, 0]
+
+I_RC
+type(I_RC)
+
+print('Benötigte Daten samelln.')
 
 ##	url list
 REGEN_DAUER = [
