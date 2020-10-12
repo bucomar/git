@@ -30,8 +30,8 @@ import pandas as pd
 ############################################
 ### GEO Koordinaten hier schreiben!!! ######
 ############################################
-x = 9.6755 # geog. Breite °N ###############
-y = 53.4646 # geog. Länge °O ###############
+x = 9.955283 # geog. Breite °N ###############
+y = 53.545022 # geog. Länge °O ###############
 ############################################
 
 print('Kostra Daten einlesen.')
@@ -42,7 +42,14 @@ SHEET = 'Raster_geog_Bezug'
 
 df = pd.read_excel(URL_COORD, sheet_name = SHEET)
 
+df.info()
+
 i_rc_row = df[ (df['X1_NW_GEO'] <= x) & (df['X4_NE_GEO'] >= x) & (df['Y1_NW_GEO'] >= y) & (df['Y2_SW_GEO'] <= y)]
+
+type(x)
+type(y)
+
+type(df[2,5])
 
 i_rc_row
 
