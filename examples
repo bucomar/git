@@ -77,3 +77,17 @@ zf.close()
 df.head()
 df.info()
 df.describe()
+
+## IPython
+hist # bemásolja az előzményeket
+
+## VIM
+:.! <valami shellcommand>
+
+# VIM+Jupyter
+jupyter console
+vim
+:JupyterConnect
+:JupyterRunFile / :JupyterRunFile / :JupyterSendCell / :JupyterSendrange
+
+
