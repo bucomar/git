@@ -83,9 +83,9 @@ v_de_c_pop = de_c.values/pop[1]
 v_de_d_pop = de_d.values/pop[1]
 v_de_r_pop = de_r.values/pop[1]
 
-v_at_c_pop = at_c.values/pop[1]
-v_at_d_pop = at_d.values/pop[1]
-v_at_r_pop = at_r.values/pop[1]
+v_at_c_pop = at_c.values/pop[2]
+v_at_d_pop = at_d.values/pop[2]
+v_at_r_pop = at_r.values/pop[2]
 
 ## Plot
 
@@ -103,7 +103,7 @@ p9, = plt.plot(t, v_at_d_pop, ':', label='Osztrák halottak')
 
 # plt.yscale('log')
 
-plt.title('A koronavírus Magyarországon és Németországban')
+plt.title('A koronavírus Magyarországon, Ausztriában és Németországban')
 
 plt.legend(loc='upper left')
 

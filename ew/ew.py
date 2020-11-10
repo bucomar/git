@@ -1,6 +1,32 @@
-# adatvesztes ellen
 
-import ewfx as ew
+######################################
+# _______        ________        __  #
+# | ____\ \      / / ___\ \      / / #
+# |  _|  \ \ /\ / /\___ \\ \ /\ / /  #
+# | |___  \ V  V /  ___) |\ V  V /   #
+# |_____|  \_/\_/  |____/  \_/\_/    #
+#                                    #
+######################################
+# EWSW
+# Entwässerung - Schmutzwasser
+# Maitz Balázs
+# 2020.
+######################################################
+# in_tab:     Konstans táblázatok /   csv
+# in_sys:    hálózat számokkal   /   csv
+# df:        itt van minden rendszeradat
+# out_tab:   Számítások          /   ???
+# out_cad:   CAD terv            /   ifc
+# out_graf:  systemschnitt       /   plot grapf
+######################################################
+
+
+
+# import sys
+# sys.path.append('/home/bucomar/github/git/ew')
+
+
+import ewfx
 import math as mt
 import numpy as np
 import pandas as pd
@@ -8,25 +34,24 @@ import pandas as pd
 ## Épülethasználat fajtája
 ## Gebäudenutzungsart
 
-k = pd.read_csv('ew/ew_csv/k.csv', sep='/', index_col=[0])
-k
-
-k.k.hotel
+k = pd.read_csv('ew_csv/k.csv', sep='|', index_col=[0])
+print(k)
 
 
-sanyter = pd.read_csv('ew/ew_csv/sanyter.csv', sep='/', index_col=[0])
 
-sanyter
-type(sanyter)
-sanyter.DN.wc
-sanyter.du.de
-sanyter.loc['wc', 'DN']
+sanyter = pd.read_csv('ew_csv/sanyter.csv', sep='|', index_col=[0])
+
+print(sanyter)
+print(type(sanyter))
+#sanyter.DN.wc
+#sanyter.du.de
+#sanyter.loc['wc', 'DN']
 # s
 # type(s)
 
+##
 
-
-
+'''
 ## fg, dn, gf, qmax, v
 ## h/D, mm, cm/m, l/s, m/s
 
@@ -72,3 +97,5 @@ k
 QWW = ew.qww(k, du)
 print('qww = ')
 print(QWW)
+
+'''
