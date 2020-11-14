@@ -81,14 +81,4 @@ df.describe()
 ## IPython
 hist # bemásolja az előzményeket
 
-## VIM
-:.! <valami shellcommand>
-:vertical resize 30 60
-
-# VIM+Jupyter
-jupyter console
-vim
-:JupyterConnect
-:JupyterRunFile / :JupyterRunFile / :JupyterSendCell / :JupyterSendrange
-
 

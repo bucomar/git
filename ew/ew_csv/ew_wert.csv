@@ -1,26 +1,26 @@
-Art	Abkürzung	Enheit	Benennung	Formel
-SW	DU	l/s	Anschlusswert	NaN
-SW	DU_SUM	l/s	Anschlusmenge	sum(DU)
-SW	K	NaN	Abflusskennzahl	NaN
-SW	Q_ww	l/s	Schmutzwasserabfluss	K * sqrt(DU_SUM)
-SW	Q_P	l/s	Pumpenförderstrom	NaN
-SW	Q_C	l/s	Dauerabfluss	NaN
-SW	Q_tot	l/s	Gesamtschmutzwasserabfluss	Q_ww + Q_C + Q_P
-EW	d_i	mm	Innendurchmesser	NaN
-EW	d_a	mm	Außendurchmesser	NaN
-EW	DN	mm	Nennweite	NaN
-EW	J	cm/m	Gefälle	NaN
-EW	h/d_i	%	Füllungsgrad	NaN
-SW	Q_zul	l/s	Zulässiger Schmutzwasserabfluss	NaN
-EW	v	m/s	Geschwindigkeit	NaN
-RW	r_DT	l/sxha	Berechnungsregenspende	NaN
-RW	A_E	m2	Einzugsgebietsfläche	NaN
-RW	C_m	NaN	mittlere Abflussbeiwert	NaN
-RW	C_e	NaN	Endabflussbeiwert	Q_r / A_U
-RW	C_s	NaN	Spitzenabflussbeiwert	NaN
-RW	A_U	m2	Angeschlossene undurchlässige Fläche	A_E * C_m
-RW	Q_r	l/s	NaN	r_DT * C_m * A_U * 1 / 10000
-EW	NaN	NaN	NaN	NaN
+Abkürzung|Art|Enheit|Benennung|Formel
+DU|SW|l/s|Anschlusswert|NaN
+DU_sum|SW|l/s|Anschlusmenge|sum(DU)
+K|SW|NaN|Abflusskennzahl|NaN
+Q_ww|SW|l/s|Schmutzwasserabfluss|K * sqrt(DU_SUM)
+Q_P|SW|l/s|Pumpenförderstrom|NaN
+Q_C|SW|l/s|Dauerabfluss|NaN
+Q_tot|SW|l/s|Gesamtschmutzwasserabfluss|Q_ww + Q_C + Q_P
+d_i|EW|mm|Innendurchmesser|NaN
+d_a|EW|mm|Außendurchmesser|NaN
+DN|EW|mm|Nennweite|NaN
+J|EW|cm/m|Gefälle|NaN
+h/d_i|EW|%|Füllungsgrad|NaN
+Q_zul|SW|l/s|Zulässiger Schmutzwasserabfluss|NaN
+v|EW|m/s|Geschwindigkeit|NaN
+r_DT|RW|l/sxha|Berechnungsregenspende|NaN
+A_E|RW|m2|Einzugsgebietsfläche|NaN
+C_m|RW|NaN|mittlere Abflussbeiwert|NaN
+C_e|RW|NaN|Endabflussbeiwert|Q_r / A_U
+C_s|RW|NaN|Spitzenabflussbeiwert|NaN
+A_U|RW|m2|Angeschlossene undurchlässige Fläche|A_E * C_m
+Q_r|RW|l/s|NaN|r_DT * C_m * A_U * 1 / 10000
+NaN|EW|NaN|NaN|NaN
 
 # http://help.dendrit.net/Dendrit%20Studio%202017/Dendrit_Studio/Glossar/Gebaeude_Grundstuecksentwaesserung/Anschlusswert.html
 
