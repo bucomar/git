@@ -1,4 +1,62 @@
 import math as m
+import pandas as pd
+
+######################################################
+# import
+# einlesen
+# beolvasás
+######################################################
+
+
+def float_col(df):
+    ''' df colnames to float '''
+    x = df.columns
+    y = []
+    for i in x:
+        y.append(float(i))
+    df.columns = y
+
+def sw_imput():
+    pass
+
+def rw_input:
+    pass
+
+######################################################
+# edit 
+# bearbeiten
+# szerkesztés
+######################################################
+
+
+def lastindex(df):
+    ''' Last index of a DataFrame. '''
+    lastindex = list(df.index)[-1]
+    return str(lastindex)
+
+
+def get_loc(df, col_ind, val):
+    ''' Return location from value. '''
+    loc = df[col_ind][df[col_ind] == val].index.tolist()
+    return loc
+
+
+def bro(i):
+    ''' Init a "brother" index -  11 => 111 '''
+    return str(i)+str(1)
+
+
+def son(i):
+    ''' Init a "son" index -  11 => 12 '''
+    return str(int(i)+1)
+
+
+######################################################
+# computing 
+# berechnung
+# számítás
+######################################################
+
 
 def q_ww(k, du):
     ''' SW | Q_ww [l/s] = k * SQRT(DU) '''
@@ -26,5 +84,26 @@ def q_r():
     ''' RW | Q_r [l/s] = r_DT * C_m * A_U * 1 / 10000 '''
     a_u = a_e * c_m
     return a_u
+
+
+######################################################
+# export 
+# Auswertung
+# kiírás
+######################################################
+
+
+######################################################
+# 
+# 
+# 
+######################################################
+
+
+######################################################
+# 
+# 
+# 
+######################################################
 
 

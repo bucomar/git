@@ -1,25 +1,22 @@
 ## Import
-# import ewfx as ew
+import ewfx as ew
 import pandas as pd
 
 
 ## Functions
 
-def lastindex(df):
-    ''' Last index of a DataFrame. '''
-    lastindex = list(df.index)[-1]
-    return str(lastindex)
 
-def get_loc(df, col_ind, val):
-    ''' Return location from value. '''
-    loc = df[col_ind][df[col_ind] == val].index.tolist()
-    return loc
+sw_input = open('ew_prj/0001_sw_input', 'r') 
+count = 0
 
-def bro(df, index):
-    none
+while True: 
+    count += 1
+    line = sw_input.readline() 
+    if not line: 
+        break
+    print("Line{}: {}".format(count, line.strip())) 
 
-def son(df, index):
-    none
+sw_input.close() 
 
 # x = get_loc(df, 'DU', 0)
 # print(x)
@@ -75,5 +72,10 @@ print()
 
 print(type(lastindex(df)))
 # df_b = 
+
+
+
+
+
 
 
