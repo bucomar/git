@@ -19,7 +19,7 @@ def float_col(df):
 def sw_imput():
     pass
 
-def rw_input:
+def rw_input():
     pass
 
 ######################################################
