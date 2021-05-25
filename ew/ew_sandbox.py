@@ -5,7 +5,7 @@ import pandas as pd
 
 ## Functions ####################################
 
-
+'''
 sw_input = open('ew_prj/0001_sw_input', 'r') 
 
 sorlista = []
@@ -82,18 +82,26 @@ lista
 ##
 
 
-
+'''
 
 ## DF ###########################################
 
-df = pd.DataFrame([0], columns=['DU'], index=['1'])
+#df = pd.DataFrame([0], columns=['DU'], index=['1'])
+df = pd.DataFrame([], columns=['ID', 'DU'])
 print(df)
 print()
 
-print(lastindex(df))
+
+
+
+
+##
+'''
+print(ew.lastindex(df))
 print()
 
-print(type(lastindex(df)))
+print(type(ew.lastindex(df)))
+'''
 
 #################################################
 

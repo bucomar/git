@@ -50,6 +50,13 @@ def son(i):
     ''' Init a "son" index -  11 => 12 '''
     return str(int(i)+1)
 
+def add_bro(i, df):
+    ''' Add a "brother" row to df '''
+    df.loc[ew.bro(i)] = [123]
+    return df
+
+
+
 
 ######################################################
 # computing 
