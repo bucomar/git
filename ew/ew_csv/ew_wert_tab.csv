@@ -1,0 +1,43 @@
+Art	Abkürzung	Enheit	Benennung	Formel
+SW	DU	l/s	Anschlusswert	NaN
+SW	DU_SUM	l/s	Anschlusmenge	sum(DU)
+SW	K	NaN	Abflusskennzahl	NaN
+SW	Q_ww	l/s	Schmutzwasserabfluss	K * sqrt(DU_SUM)
+SW	Q_P	l/s	Pumpenförderstrom	NaN
+SW	Q_C	l/s	Dauerabfluss	NaN
+SW	Q_tot	l/s	Gesamtschmutzwasserabfluss	Q_ww + Q_C + Q_P
+EW	d_i	mm	Innendurchmesser	NaN
+EW	d_a	mm	Außendurchmesser	NaN
+EW	DN	mm	Nennweite	NaN
+EW	J	cm/m	Gefälle	NaN
+EW	h/d_i	%	Füllungsgrad	NaN
+SW	Q_zul	l/s	Zulässiger Schmutzwasserabfluss	NaN
+EW	v	m/s	Geschwindigkeit	NaN
+RW	r_DT	l/sxha	Berechnungsregenspende	NaN
+RW	A_E	m2	Einzugsgebietsfläche	NaN
+RW	C_m	NaN	mittlere Abflussbeiwert	NaN
+RW	C_e	NaN	Endabflussbeiwert	Q_r / A_U
+RW	C_s	NaN	Spitzenabflussbeiwert	NaN
+RW	A_U	m2	Angeschlossene undurchlässige Fläche	A_E * C_m
+RW	Q_r	l/s	NaN	r_DT * C_m * A_U * 1 / 10000
+EW	NaN	NaN	NaN	NaN
+VS	A_U	m2	Angeschlossene undurchlässige Fläche	A_E * C_m
+VS	Q_zu	m3/s	Zulässiger Schmutzwasserabfluss	10^-7 * 
+VS	r_Dn	l/sxha	Regenspende	NaN
+VS	AE	m2	Einzugsgebietsfläche [m2]
+VS	Au	m2	Rechenwert undurchlässige Fläche [m2]
+VS	fA	NaN	Abminderungsfaktor nach DWA-A 117 [−]
+VS	fZ	NaN	Zuschlagfaktor nach DWA-A 117 [−]
+VS	Ihy	m/m	Hydraulisches Gefälle [m/m]
+VS	IR	m	Rigolenlänge [m]
+VS	kf	m/s	Durchlässigkeitsbeitwert   der   gesättigtenZone [m/s]
+VS	n	1/a	Häufigkeit [1/a]
+VS	qs	m3/(s·ha)	spezifische Versickerungsrate [m3/(s·ha)]
+VS	Qzu	m3/s	Zufluss zur Versickerungsanlage [m3/s]
+VS	rD(n)	l/(sxha)	Regenspende   der   DauerDund   derHäufigkeitn[l/(s·ha)]
+VS	sRR	NaN	Speicherkoeffizent der (Rohr-)Rigole [−]
+VS	vs	m/s	Filtergeschwindigkeit der gesätigten Zone[m/s]
+VS	z	a	Jährlichkeit  oder  Wiederkehrzeit,  auchTn[a]
+VS	Ψ	NaN	mmittlerer Abflussbeiwert [−]
+
+# http://help.dendrit.net/Dendrit%20Studio%202017/Dendrit_Studio/Glossar/Gebaeude_Grundstuecksentwaesserung/Anschlusswert.html

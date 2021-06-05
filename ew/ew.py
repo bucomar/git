@@ -1,23 +1,16 @@
 
 ######################################################
-# _______        ________        __                  #
-# | ____\ \      / / ___\ \      / /                 #
-# |  _|  \ \ /\ / /\___ \\ \ /\ / /                  #
-# | |___  \ V  V /  ___) |\ V  V /                   #
-# |_____|  \_/\_/  |____/  \_/\_/                    #
+# _______        ___                                 #
+# | ____\ \      / /                                 #
+# |  _|  \ \ /\ / /                                  #
+# | |___  \ V  V /                                   #
+# |_____|  \_/\_/                                    #
 #                                                    #
 ######################################################
-# EWSW
-# Entwässerung - Schmutzwasser
+# EW
+# Entwässerung
 # Maitz Balázs
-# 2020.
-######################################################
-# in_tab:     Konstans táblázatok /   csv
-# in_sys:    hálózat számokkal   /   csv
-# df:        itt van minden rendszeradat
-# out_tab:   Számítások          /   ???
-# out_cad:   CAD terv            /   ifc
-# out_graf:  systemschnitt       /   plot grapf
+# 2021.
 ######################################################
 
 ######################################################
@@ -26,15 +19,32 @@
 # modulok importálása
 ######################################################
 
-import ewfx
+import ew_fx as fx
+# import ew_in_sw as in_sw
+# import ew_in_rw as in_rw
+# import ew_in_kostra as in_kostra
+ 
+# import ew_sw as sw
+# import ew_rw as rw
+# import ew_vs as vs
+ 
+# import ew_ex_pdf as ex_pdf
+# import ew_ex_cad as ex_cad
+
 import math as mt
 import numpy as np
 import pandas as pd
 
+######################################################
+#                                                    #
+# SW - Schmutzwasser                                 #
+#                                                    #
+######################################################
 
+'''
 ######################################################
 # import datasets
-# Dateiensets imortieren
+# Dateiensets importieren
 # adatkészletek importálása
 ######################################################
 
@@ -55,6 +65,15 @@ import pandas as pd
 k_df = pd.read_csv('ew_csv/k.csv', sep='|', index_col=0)
 print(k_df)
 
+
+#######################################
+# k = ? 
+#  
+#  
+#######################################
+
+k = k_df.iloc[0]
+print(k)
 
 #######################################
 # ??? sanyiter
@@ -91,20 +110,13 @@ print(type(q_max_ver_df))
 #######################################
 
 q_max_hor_50_df = pd.read_csv('ew_csv/Q_max_hor_50.csv', sep='|', index_col=0)
-ewfx.float_col(q_max_hor_50_df)
+fx.float_col(q_max_hor_50_df)
 
 q_max_hor_70_df = pd.read_csv('ew_csv/Q_max_hor_70.csv', sep='|', index_col=0)
-ewfx.float_col(q_max_hor_70_df)
+fx.float_col(q_max_hor_70_df)
 
 print(q_max_hor_50_df)
 print(q_max_hor_70_df)
-
-######################################################
-# projectvalues
-# Projektdaten
-# projektadatok
-######################################################
-
 
 #######################################
 # import imput_sanyter 
@@ -119,8 +131,22 @@ print(q_max_hor_70_df)
 # szennyvízhálózat beolvasása
 #######################################
 
+'''
 
 
+
+
+
+
+
+######################################################
+#                                                    #
+# RW - Regenwasser                                   #
+#                                                    #
+######################################################
+
+
+'''
 #######################################
 # import rw_network
 # import rw_netz
@@ -128,28 +154,35 @@ print(q_max_hor_70_df)
 #######################################
 
 
+#######################################
+#  
+#  
+#  
+#######################################
 
 
+#######################################
+#  
+#  
+#  
+#######################################
 
+#######################################
+#  
+#  
+#  
+#######################################
+
+'''
 
 
 
 
 ######################################################
-# groundvalues
-# Grunddaten
-# Alapadatok
+#                                                    #
+# VS - Versickerung                                  #
+#                                                    #
 ######################################################
-
-
-#######################################
-# k = ? 
-#  
-#  
-#######################################
-
-k = k_df.iloc[0]
-print(k)
 
 
 
@@ -228,7 +261,6 @@ print(k)
 # Systemschnitt
 # függőleges csőterv
 #######################################
-
 
 
 
