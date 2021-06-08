@@ -1,28 +1,72 @@
 ## Import
-import ewfx as ew
 import pandas as pd
 import numpy as np
 import math as mt
-from decimal import *
+import matplotlib.pyplot as plt
+import sympy as sp
+#import latex
 
 ##
+
+
+'''
 ##
 A_u = 858.23       # m2
 r_Dn = 40.14     # l/(s*ha)
 
 Q_zu = A_u * r_Dn * 1e-7 
 
-print(ew.normal_form(Q_zu))
-##
+'''
+'''
 
+Q_zu = sp.Symbol('Q_zu')
+A_u = sp.Symbol('A_u')
+r_Dn = sp.Symbol('r_Dn')
+
+
+
+
+sp.pprint(Q_zu)
+print(' = ')
+sp.pprint( A_u * r_Dn * 1e-7)
+'''
+
+
+
+# str_expr = "x**2 + 3*x - 1/2"
+# expr = sp.sympify(str_expr)
+
+#q.saveimage('/plot.png', format='png')
+
+# sp.preview(expr, viewer='file', filename='output.png')
+
+sp.preview(r'$$\int_0^1 e^x\,dx$$', viewer='file', filename='test.png')
+
+# sp.init_printing()
+
+
+#y = sp.symbols('y')
+# p = sp.Plot(y ** 3 - 2 )
+# p.saveimage('/plot.png', format='png')
+
+
+#sp.pprint(expr)
+#sp.print_python(expr)
+#sp.print_latex(expr)
+
+
+
+# print(ew.normal_form(Q_zu))
+##
+'''
 A_s = 50    # m2
 k_f = 0.00001   # m/s
 
 Q_s = A_s * k_f / 2
 
-ew.normal_form(Q_s)
+# ew.normal_form(Q_s)
 ##
-
+'''
 '''
 Q_zu	m3/s	Zulässiger Schmutzwasserabfluss	10^-7 * 
 r_Dn	l/sxha	Regenspende	NaN
@@ -144,7 +188,7 @@ lista
 '''
 
 ## DF ###########################################
-
+'''
 head = ['DU', 'Qw', 'DN', 'J', 'n/n']
 #nan_val = [np.nan, np.nan, np.nan, np.nan, np.nan]
 
@@ -152,7 +196,7 @@ head = ['DU', 'Qw', 'DN', 'J', 'n/n']
 df = pd.DataFrame([], columns=head)
 print(df)
 print()
-
+'''
 '''
 df.loc[0] = [1, 2, 3, 4, 5]
 df.loc[1] = [1, 2, 3, 4, 5]
@@ -167,6 +211,8 @@ df.loc['3'] = [1, 2, 3, 4, 5]
 df.loc['11'] = [1, 2, 3, 4, 5]
 df.loc['21'] = [1, 2, 3, 4, 5]
 df.loc['2'] = [1, 2, 3, 4, 5]
+
+'''
 
 '''
 nan_val = []
@@ -190,7 +236,7 @@ print(df)
 add_bro('01')
 
 #df.loc[ew.son(ew.lastindex(df))] = pd.DataFrame(columns=head)
-
+'''
 
 ##
 '''
@@ -201,7 +247,7 @@ print(type(ew.lastindex(df)))
 '''
 
 #################################################
-
+'''
 
 df_i = pd.DataFrame([12], columns=['DU'], i:ndex=[lastindex(df)+1])
 print(df_i)
@@ -241,7 +287,7 @@ print(type(lastindex(df)))
 
 #################################################
 
-
+'''
 
 
 
