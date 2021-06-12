@@ -51,13 +51,27 @@ REGEN_DAUER = [
 '0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320'
 ]
 
+'''
+REGEN_DAUER = [
+'0005', '0010', '0015', '0020', '0030', '0045', '0060', '0090', '0120', '0180', '0240', '0360', '0540', '0720', '1080', '1440', '2880', '4320'
+]
+'''
+
+
+REGEN_DAUER_Index = [
+'5', '10', '15', '20', '30', '45', '60', '90', '120', '180', '240', '360', '540', '720', '1080', '1440', '2880', '4320'
+]
+
+
+WIEDERKEHR_ZEIT = [
+'1', '2', '3', '5', '10', '20', '30', '50', '100'
+]
+
 URL = []
 
 for i in range(len(REGEN_DAUER)):
 	URL.append(
-	'https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D'
-	+REGEN_DAUER[i]
-	+'.csv.zip'
+	f'https://opendata.dwd.de/climate_environment/CDC/grids_germany/return_periods/precipitation/KOSTRA/KOSTRA_DWD_2010R/asc/StatRR_KOSTRA-DWD-2010R_D{REGEN_DAUER[i]}.csv.zip'
 	)
 
 #######################################
@@ -73,11 +87,12 @@ for i in range(0, len(REGEN_DAUER)):
 	DF_TEMP = fx.kos_get_csv_df(i, URL, REGEN_DAUER)
 	LOCAL_RS = fx.kos_df_row_exp(DF_TEMP, I_RC, LOCAL_RS, i, REGEN_DAUER)
 
-LOCAL_RS.index = REGEN_DAUER
+LOCAL_RS.index = REGEN_DAUER_Index
 LOCAL_RS.index.name = 'Regendauer'
+LOCAL_RS.columns = WIEDERKEHR_ZEIT
 LOCAL_RS.columns.name = 'Regenhaufigkeit'
 
-LOCAL_RS.to_csv('local_rs.csv')
+LOCAL_RS.to_csv(f'ew_ex/{I_RC}_local_rs.csv')
 
 print(LOCAL_RS)
 print('LOCAL_RS ist fertig!')

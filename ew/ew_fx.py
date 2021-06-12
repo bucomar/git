@@ -21,6 +21,11 @@ import pandas as pd
 
 import requests, zipfile, io
 
+
+
+
+
+
 ######################################################
 # KOSTRA
 # KOSTRA
@@ -203,25 +208,26 @@ def vs_q_s (A_s, k_f):
     Q_s = A_s * k_f / 2 # m3/s
     return Q_s
 
-def vs_v_vs (Q_zu, Q_s, D_vs_5, f_z=1.15):
+def vs_v_erf (Q_zu, Q_s, Q_dr, D_vs_5, f_z=1.15):
     ''' VS |
-    V_VS    [m3] = (Q_zu - Q_s) * D_vs_5 * 60 * f_z
+    V_erf    [m3] = (Q_zu - Q_s - Q_dr) * D_vs_5 * 60 * f_z
     '''
 
     #D_vs_5 = 120 # min
     #f_z = 1.15
 
-    V_VS = (Q_zu - Q_s) * D_vs_5 * 60 * f_z
+    V_erf = (Q_zu - Q_s - Q_dr) * D_vs_5 * 60 * f_z
+    return V_erf
 
-def vs_v_mulde (A_s, z=0.30):
+def vs_v_vs (A_s, z=0.30):
     ''' VS |
-    V_mulde [m3] = A_s * z
+    V_vs [m3] = A_s * z
     '''
 
     #z = 0.30 # m
 
-    V_mulde = A_s * z
-    return V_mulde
+    V_vs = A_s * z
+    return V_vs
 
 """
 def mulde(A_u, r_Dn, A_s, k_f, D_vs_5, f_z=1.15, z=0.30):
@@ -251,9 +257,36 @@ def mulde(A_u, r_Dn, A_s, k_f, D_vs_5, f_z=1.15, z=0.30):
 # kiírás
 ######################################################
 
+
+
+
+
+def get_super(x):
+    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
+    super_s = "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖ۹ʳˢᵗᵘᵛʷˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾"
+    res = x.maketrans(''.join(normal), ''.join(super_s))
+    return x.translate(res)
+  
+# display superscipt
+# print(get_super('GeeksforGeeks')) #ᴳᵉᵉᵏˢᶠᵒʳᴳᵉᵉᵏˢ
+
+
+def get_sub(x):
+    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
+    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
+    res = x.maketrans(''.join(normal), ''.join(sub_s))
+    return x.translate(res)
+  
+# display subscript
+# print('H{}SO{}'.format(get_sub('2'),get_sub('4'))) #H₂SO₄
+
+
 def normal_form(num):
     ''' Print a number in normal form ve: 1.23e-5 '''
     return ('{:.2e}'.format(num))
+
+
+
 ######################################################
 # 
 # 

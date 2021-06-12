@@ -43,18 +43,22 @@ pdf.cell(0, h, txt = prj.bauherr_anschrift, ln = 1)
 pdf.cell(0, h, ln = 1)
 
 pdf.cell(0, h, txt = vs.A_u_Form, ln = 1)
+pdf.cell(0, h, txt = vs.z_Form, ln = 1)
+pdf.cell(0, h, txt = vs.k_f_Form, ln = 1)
 pdf.cell(0, h, txt = vs.r_Dn_Form, ln = 1)
 pdf.cell(0, h, txt = vs.Q_zu_Form, ln = 1)
+pdf.cell(0, h, txt = vs.V_erf_Form, ln = 1)
 
 pdf.cell(0, h, ln = 1)
 
 pdf.cell(0, h, txt = vs.A_s_Form, ln = 1)
 pdf.cell(0, h, txt = vs.k_f_Form, ln = 1)
 pdf.cell(0, h, txt = vs.Q_s_Form, ln = 1)
+pdf.cell(0, h, txt = vs.V_vs, ln = 1)
 
 pdf.cell(0, h, ln = 1)
 
-pdf.cell(0, h, txt = vs.concl_fl_vs_form, border = 1, ln = 1, align = 'C')
+pdf.cell(0, h, txt = vs.concl_vs_form, border = 1, ln = 1, align = 'C')
 
 pdf.image('ew_ex/ew_vs_flvs.png', w = 200, h = 100)
 
