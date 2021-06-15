@@ -8,32 +8,43 @@ import matplotlib.pyplot as plt
 
 ##
 
+# #sp.init_session()
+# x, y, z = sp.symbols('x y z')
+# 
+# 
+# #sp.pprint(Integral(sqrt(2*x), use_unicode=True))
+# 
+# eq = sp.Eq(x**2 + y**2, z**2 )
+# 
+# print(sp.latex(eq))
 
-##
+def save_var_latex(key, value):
+    import csv
+    import os
+
+    dict_var = {}
+
+    file_path = os.path.join(os.getcwd(), "mydata.dat")
+
+    try:
+        with open(file_path, newline="") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                dict_var[row[0]] = row[1]
+    except FileNotFoundError:
+        pass
+
+    dict_var[key] = value
+
+    with open(file_path, "w") as f:
+        for key in dict_var.keys():
+            f.write(f"{key},{dict_var[key]}\n")
+
+
+save_var_latex('Q_s', 123)
+save_var_latex('Q_e', 456)
+save_var_latex('V_erf', 798)
+save_var_latex('V_RR', 147)
 
 
 
-
-
-
-##
-'''
-Q_zu	m3/s	Zulässiger Schmutzwasserabfluss	10^-7 * 
-r_Dn	l/sxha	Regenspende	NaN
-A_E	m2	Einzugsgebietsfläche [m2]
-A_u	m2	Rechenwert undurchlässige Fläche [m2]
-f_A	NaN	Abminderungsfaktor nach DWA-A 117 [−]
-f_Z	NaN	Zuschlagfaktor nach DWA-A 117 [−]
-Ihy	m/m	Hydraulisches Gefälle [m/m]
-IR	m	Rigolenlänge [m]
-k_f	m/s	Durchlässigkeitsbeitwert   der   gesättigtenZone [m/s]
-n	1/a	Häufigkeit [1/a]
-q_s	m3/(s·ha)	spezifische Versickerungsrate [m3/(s·ha)]
-Q_zu	m3/s	Zufluss zur Versickerungsanlage [m3/s]
-r_Dn	l/(sxha)	Regenspende   der   DauerDund   derHäufigkeitn[l/(s·ha)]
-sRR	NaN	Speicherkoeffizent der (Rohr-)Rigole [−]
-vs	m/s	Filtergeschwindigkeit der gesätigten Zone[m/s]
-z	a	Jährlichkeit  oder  Wiederkehrzeit,  auchTn[a]
-Ψ	NaN	mmittlerer Abflussbeiwert [−]
-
-'''
