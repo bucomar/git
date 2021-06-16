@@ -24,19 +24,13 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 
-#######################################
-#  
-# Flächenversickerung 
-#  
-#######################################
-
 ## Grunddaten
 
 # örtliche Regenspendedaten
 LOCAL_RS = pd.read_csv(f'ew_ex/{prj.I_RC}_local_rs.csv', index_col='Regendauer') 
 print(LOCAL_RS.loc[:, ('2', '5', '30', '100')])
-'''
 
+'''
 rs_005 = LOCAL_RS[['5']]
 rs_100 = LOCAL_RS[['100']]
 

@@ -1,0 +1,84 @@
+\documentclass[12pt]{report}
+
+\author{Balázs Maitz} %Author of document.
+\title{Hydraulische - Berechnungen} %Title of document.
+\date{2021-06-15} %Date.
+
+% package to open file containing variables
+\usepackage{datatool, filecontents}
+\DTLsetseparator{|}% Set the separator between the columns.
+
+% import data
+\DTLloaddb[noheader, keys={thekey,thevalue}]{ew}{ew.dat}
+%\DTLloaddb[noheader, keys={thekey,thevalue}]{mydata}{mydata.dat}
+% Loads mydata.dat with column headers 'thekey' and 'thevalue'
+\newcommand{\var}[1]{\DTLfetch{ew}{thekey}{#1}{thevalue}}
+%\newcommand{\var}[1]{\DTLfetch{mydata}{thekey}{#1}{thevalue}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\pagebreak
+
+
+%\part{part}
+%\chapter{Schmutzwasser Entwässerung}
+\section*{Schmutzwasser Entwässerung}
+\subsection*{Fallleitungen}
+%\subsubsection{subsubsection}
+%\paragraph{paragraph}
+%\subparagraph{subparagraph}
+
+Schmutzwasser Fallleitungen.\\
+Noch Leitungen\\
+Noch Leitungen\\
+Noch Leitungen\\
+
+\pagebreak
+
+
+
+%\part{part}
+%\chapter{Schmutzwasser Entwässerung}
+\section*{Regenwasser Entwässerung}
+\subsection*{Fallleitungen}
+%\subsubsection{subsubsection}
+%\paragraph{paragraph}
+%\subparagraph{subparagraph}
+
+Regenwasser Fallleitungen.\\
+Noch Leitungen\\
+Noch Leitungen\\
+Noch Leitungen\\
+
+\subsection*{Grundleitungen}
+
+Noch Leitungen\\
+Noch Leitungen\\
+
+\subsection*{Maßgebende Regenspende}
+
+Noch Leitungen\\
+
+\subsection*{Versickerung}
+
+%\begin{equation}[place] % Add numbered equation.
+$Q{_s}: \var{Q_s}$ 
+%\end{equation}
+
+$Q{_e}: \var{Q_e}$
+
+$V_{erf}: \var{V_erf}$
+
+$V_{RR}: \var{V_RR}$
+
+$S_{fdsfds} * Q^56 / sqrt{86} = 162,59 m^2/s  $
+
+
+\end{document}
+

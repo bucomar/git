@@ -7,44 +7,22 @@ import matplotlib.pyplot as plt
 #import latex
 
 ##
+Q_s = 1.4
+Q_s_tex = f'Q_s: {Q_s} m^3/s'
+print(Q_s_tex)
+with open('sandbox.tex','r') as myfile:
+    text = myfile.read()
+    text_new = text.replace('Q_s', str(Q_s_tex))
+    
+    with open('sandbox_new.tex', 'w') as output:
+        output.write(text_new)
 
-# #sp.init_session()
-# x, y, z = sp.symbols('x y z')
-# 
-# 
-# #sp.pprint(Integral(sqrt(2*x), use_unicode=True))
-# 
-# eq = sp.Eq(x**2 + y**2, z**2 )
-# 
-# print(sp.latex(eq))
-
-def save_var_latex(key, value):
-    import csv
-    import os
-
-    dict_var = {}
-
-    file_path = os.path.join(os.getcwd(), "mydata.dat")
-
-    try:
-        with open(file_path, newline="") as file:
-            reader = csv.reader(file)
-            for row in reader:
-                dict_var[row[0]] = row[1]
-    except FileNotFoundError:
-        pass
-
-    dict_var[key] = value
-
-    with open(file_path, "w") as f:
-        for key in dict_var.keys():
-            f.write(f"{key},{dict_var[key]}\n")
+'''
+'''
 
 
-save_var_latex('Q_s', 123)
-save_var_latex('Q_e', 456)
-save_var_latex('V_erf', 798)
-save_var_latex('V_RR', 147)
+
+
 
 
 

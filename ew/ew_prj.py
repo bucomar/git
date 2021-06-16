@@ -14,6 +14,7 @@
 ######################################################
 #import ev_in_kostra as kos
 import pandas as pd
+import ew_fx as fx
 
 ######################################################
 #                                                    #
@@ -21,14 +22,19 @@ import pandas as pd
 #                                                    #
 ######################################################
 
+
 # Bauvorhaben
-bauvorhaben = 'Ein Bauvorhaben'
+ew_data = pd.Series(index=['bauvorhaben'], data=['Ein Bauvorhaben'])
+print(ew_data)
+#fx.to_data(ew_data, 'bauvorhaben', 'Ein Bauvorhaben')
+print(ew_data)
 
 # Anschrift
-bauvorhaben_anschrift = 'Musterstrase 3, 12345 Musterdorf'
+fx.to_data(ew_data, 'bauvorhaben_anschrift', 'Musterstrase 3, 12345 Musterdorf')
+print(ew_data)
 
 # Bauherr
-bauherr = 'Herr Bauherr'
+fx.to_data(ew_data, ' bauherr', 'Herr Bauherr')
 
 # Anschrift des Bauherrs
 bauherr_anschrift = 'Bauherrstrasse 666, 98765 Bauherdorf'

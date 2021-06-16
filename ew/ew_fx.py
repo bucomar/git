@@ -286,6 +286,35 @@ def normal_form(num):
     return ('{:.2e}'.format(num))
 
 
+def latex_export(key, value):
+    import csv
+    import os
+
+    dict_var = {}
+
+    file_path = os.path.join(os.getcwd(), "ew_data/ew.dat")
+
+    try:
+        with open(file_path, newline="") as file:
+            reader = csv.reader(file)
+            for row in reader:
+                dict_var[row[0]] = row[1]
+    except FileNotFoundError:
+        pass
+
+    dict_var[key] = value
+
+    with open(file_path, "w") as f:
+        for key in dict_var.keys():
+            f.write(f"{key}|{dict_var[key]}\n")
+
+
+def to_data(df, k, v):
+    d = pd.DataFrame(data=[v], index=[k])
+    df = pd.concat([df, d])
+    return df
+
+
 
 ######################################################
 # 
