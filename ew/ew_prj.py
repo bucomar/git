@@ -25,13 +25,13 @@ import ew_fx as fx
 
 # Bauvorhaben
 ew_data = pd.Series(index=['bauvorhaben'], data=['Ein Bauvorhaben'])
-print(ew_data)
+#print(ew_data)
 #fx.to_data(ew_data, 'bauvorhaben', 'Ein Bauvorhaben')
-print(ew_data)
+#print(ew_data)
 
 # Anschrift
 fx.to_data(ew_data, 'bauvorhaben_anschrift', 'Musterstrase 3, 12345 Musterdorf')
-print(ew_data)
+#print(ew_data)
 
 # Bauherr
 fx.to_data(ew_data, ' bauherr', 'Herr Bauherr')

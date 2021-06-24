@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.6.15)  17 JUN 2021 23:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.6.15)  23 JUN 2021 22:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**sandbox_new
-(./sandbox_new.tex
+**ew_vorlage.tex
+(./ew_vorlage.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-07-17>
 (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -29,8 +29,8 @@ File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count177
 \l__pdf_internal_box=\box45
 )
-(./sandbox_new.aux)
-\openout1 = `sandbox_new.aux'.
+No file ew_vorlage.aux.
+\openout1 = `ew_vorlage.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -50,14 +50,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 12.
- [1
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./sandbox_new.toc)
+No file ew_vorlage.toc.
 \tf@toc=\write3
-\openout3 = `sandbox_new.toc'.
+\openout3 = `ew_vorlage.toc'.
 
- [1
+[1
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 27--31
@@ -79,41 +79,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
-
- []
-
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 62.
+(Font)              <12> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 62.
+(Font)              <8> on input line 60.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 62.
-
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
-
- []
-
-[3] (./sandbox_new.aux) ) 
+(Font)              <6> on input line 60.
+[3] (./ew_vorlage.aux) ) 
 Here is how much of TeX's memory you used:
- 419 strings out of 482854
- 6903 string characters out of 5956881
+ 414 strings out of 482854
+ 6822 string characters out of 5956881
  238480 words of memory out of 5000000
- 15834 multiletter control sequences out of 15000+600000
+ 15833 multiletter control sequences out of 15000+600000
  540555 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 24i,7n,25p,128b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on sandbox_new.pdf (4 pages, 63060 bytes).
+ 24i,7n,25p,131b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on ew_vorlage.pdf (4 pages, 52869 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 37 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

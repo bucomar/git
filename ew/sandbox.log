@@ -1,0 +1,133 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdftex 2021.6.15)  17 JUN 2021 23:14
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**sandbox
+(./sandbox.tex
+! Undefined control sequence.
+l.2 \documentclass
+                  [12pt]{report}
+? 
+! Undefined control sequence.
+l.4 \author
+           {Bal√°zs Maitz} %Author of document.
+? 
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ° in font cmr10!
+! Undefined control sequence.
+l.5 \title
+          {Hydraulische - Berechnungen} %Title of document.
+? 
+! Undefined control sequence.
+l.6 \date
+         {2021-06-15} %Date.
+? 
+! Undefined control sequence.
+l.10 \begin
+           {document}
+? ^^[
+Type <return> to proceed, S to scroll future error messages,
+R to run without stopping, Q to run quietly,
+I to insert something, E to edit your file,
+1 or ... or 9 to ignore the next 1 to 9 tokens of input,
+H for help, X to quit.
+? 
+! Undefined control sequence.
+l.12 \maketitle
+               
+? 
+! Undefined control sequence.
+l.13 \tableofcontents
+                     
+? 
+! Undefined control sequence.
+l.16 \pagebreak
+               
+? 
+! Undefined control sequence.
+l.21 \section
+             *{Schmutzwasser Entw√§sserung}
+? 
+Missing character: There is no √ in font cmr10!
+Missing character: There is no § in font cmr10!
+! Undefined control sequence.
+l.22 \subsection
+                *{Fallleitungen}
+? 
+Runaway argument?
+ Noch Leitungen\\ Noch Leitungen\\ Noch Leitungen\\ 
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.31 
+     
+? 
+! Undefined control sequence.
+l.32 \pagebreak
+               
+? 
+! Undefined control sequence.
+l.38 \section
+             *{Regenwasser Entw√§sserung}
+? 
+Missing character: There is no √ in font cmr10!
+Missing character: There is no § in font cmr10!
+! Undefined control sequence.
+l.39 \subsection
+                *{Fallleitungen}
+? 
+Runaway argument?
+ Noch Leitungen\\ Noch Leitungen\\ Noch Leitungen\\ 
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.48 
+     
+? 
+! Undefined control sequence.
+l.49 \subsection
+                *{Grundleitungen}
+? 
+Runaway argument?
+ Noch Leitungen\\ 
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.53 
+     
+? 
+! Undefined control sequence.
+l.54 \subsection
+                *{Ma√ügebende Regenspende}
+? 
+Missing character: There is no √ in font cmr10!
+Missing character: There is no ü in font cmr10!
+Runaway argument?
+ 
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.57 
+     
+? 
+! Undefined control sequence.
+l.58 \subsection
+                *{Versickerung}
+? 
+Runaway argument?
+ Q_s \\ !!! Kontent v√©ge !!!\\ 
+! Paragraph ended before \\ was complete.
+<to be read again> 
+                   \par 
+l.65 
+     
+? 
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] )</usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on sandbox.pdf (1 page, 19467 bytes).
+PDF statistics:
+ 12 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

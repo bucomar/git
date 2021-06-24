@@ -60,13 +60,13 @@ Q_dr_Form = f'Q_dr = q_dr * 1000 = {fx.normal_form(Q_dr)} m^3/s'
 Q_zu = fx.vs_q_zu(A_u, r_Dn)
 Q_zu_Form = f'Q_zu = A_u * r_Dn * 1e-7 = {fx.normal_form(Q_zu)} m^3/s' 
 
+'''
 print(A_u_Form)
 print(r_Dn_Form)
 print(Q_dr_Form)
 print(Q_zu_Form)
 print()
 
-'''
 
 print(rs_005)
 
@@ -136,6 +136,7 @@ V_vs_Form = f'V_vs = A_s * z = {fx.normal_form(V_vs)} m^3'
 
 
 
+'''
 
 print(A_s_Form)
 print(z_Form)
@@ -145,7 +146,6 @@ print(V_erf_Form)
 print(V_vs_Form)
 print()
 
-'''
 
 '''
 
@@ -185,7 +185,7 @@ print()
 #concl_vs_form = f'{fx.normal_form(Q_zu)} l/m^3 < {fx.normal_form(Q_s)} l/m^3'
 concl_vs_form = f'{fx.normal_form(V_erf)} l/m^3 < {fx.normal_form(V_vs)} l/m^3'
 
-print(concl_vs_form)
+#print(concl_vs_form)
 
 
 
