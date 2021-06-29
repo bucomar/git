@@ -23,11 +23,18 @@ import ew_vs as vs
 
 with open('ew_ex/ew_vorlage.tex','r') as myfile:
     text = myfile.read()
-    text = text.replace('as-tex', vs.A_s_Form)
-    text = text.replace('z-tex', vs.z_Form)
-    text = text.replace('kf-tex', vs.k_f_Form)
-    text = text.replace('qs-tex', vs.Q_s_Form)
-    text = text.replace('verf-tex', vs.V_erf_Form)
+    text = text.replace('au-tex', vs.A_u_f)
+    text = text.replace('rdn-tex', vs.r_Dn_f)
+    text = text.replace('qdr-tex', vs.Q_dr_f)
+    text = text.replace('qzu-tex', vs.Q_zu_f)
+    text = text.replace('au-tex', vs.A_u_f)
+    text = text.replace('as-tex', vs.A_s_f)
+    text = text.replace('z-tex', vs.z_f)
+    text = text.replace('kf-tex', vs.k_f_f)
+    text = text.replace('qs-tex', vs.Q_s_f)
+    text = text.replace('verf-tex', vs.V_erf_f)
+    text = text.replace('vvs-tex', vs.V_vs_f)
+    text = text.replace('concl', vs.concl_vs)
     
     with open('ew_ex/ew.tex', 'w') as output:
         output.write(text)

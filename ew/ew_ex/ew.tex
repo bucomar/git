@@ -4,7 +4,6 @@
 \title{Hydraulische - Berechnungen} %Title of document.
 \date{2021-06-15} %Date.
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -18,8 +17,8 @@
 
 %\part{part}
 %\chapter{Schmutzwasser Entwässerung}
-\section*{Schmutzwasser Entwässerung}
-\subsection*{Fallleitungen}
+\section{Schmutzwasser Entwässerung}
+\subsection{Fallleitungen}
 %\subsubsection{subsubsection}
 %\paragraph{paragraph}
 %\subparagraph{subparagraph}
@@ -35,8 +34,8 @@ Noch Leitungen\\
 
 %\part{part}
 %\chapter{Schmutzwasser Entwässerung}
-\section*{Regenwasser Entwässerung}
-\subsection*{Fallleitungen}
+\section{Regenwasser Entwässerung}
+\subsection{Fallleitungen}
 %\subsubsection{subsubsection}
 %\paragraph{paragraph}
 %\subparagraph{subparagraph}
@@ -46,39 +45,53 @@ Noch Leitungen\\
 Noch Leitungen\\
 Noch Leitungen\\
 
-\subsection*{Grundleitungen}
+\subsection{Grundleitungen}
 
 Noch Leitungen\\
 Noch Leitungen\\
 
-\subsection*{Maßgebende Regenspende}
+\subsection{Maßgebende Regenspende}
 
 Noch Leitungen\\
 
-\subsection*{Versickerung}
+\subsection{Versickerung}
 
-\begin{equation*}
-A_s = 150 m^2
-\end{equation*}
+\subsubsection{Zufluss}
 
-\begin{equation*}
-z = 0.3 m
-\end{equation*}
+$A_{u} = 858.23 \ m^2$ \\
+$r_{Dn} = 266.67 \ \frac{l}{s*ha}$ \\
 
+\begin{equation}
+        Q_{dr} = q_{dr} * 1000 = 1.82e+04 \ \frac{m^3}{s}
+\end{equation}
 
-\begin{equation*}
-k_f = 1e-05 m/s
-\end{equation*}
+\begin{equation}
+        Q_{zu} = A_{u} * r_{Dn} * 1e-7 = 2.29e-02 \ \frac{m^2}{s}
+\end{equation}
 
+\subsubsection{Versickerungsret}
 
-\begin{equation*}
-Q_S = A_s * k_f / 2 = 7.50e-04 m^3/s
-\end{equation*}
+$A_{s} = 150 \ m^2$ \\
+$z = 0.3 \ m$ \\
+$k_f = k_{f} \ 1e-05$ \\
 
-\begin{equation*}
-V_erf = (Q_zu - Q_s - Q_dr) * D_vs_5 * 60 * f_z = -3.01e+08 m^3
-\end{equation*}
+\begin{equation}
+        Q_S = A_s * k_f / 2 = 7.50e-04 \ \frac{m^3}{s}
+\end{equation}
 
+\subsubsection{Volumen}
+
+\begin{equation}
+        V_{erf} = (Q_{zu} - Q_{s} - Q_{dr}) * D_{vs-5} * 60 * f_{z} = -3.01e+08 \ m^3
+\end{equation}
+
+\begin{equation}
+        V_{vs} = A_{s} * z = 4.50e+01 \ m^3
+\end{equation}
+
+\begin{equation}
+        -3.01e+08 \ m^3 < 4.50e+01 \ m^3
+\end{equation}
 
 \end{document}
 
