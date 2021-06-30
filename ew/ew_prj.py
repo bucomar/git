@@ -24,20 +24,40 @@ import ew_fx as fx
 
 
 # Bauvorhaben
-ew_data = pd.Series(index=['bauvorhaben'], data=['Ein Bauvorhaben'])
+#ew_data = pd.DataFrame(index=['bauvorhaben'], data=['Ein Bauvorhaben'])
 #print(ew_data)
 #fx.to_data(ew_data, 'bauvorhaben', 'Ein Bauvorhaben')
 #print(ew_data)
+bauvorhaben = 'Ein Bauvorhaben'
+
 
 # Anschrift
-fx.to_data(ew_data, 'bauvorhaben_anschrift', 'Musterstrase 3, 12345 Musterdorf')
+#ew_data = fx.to_data(ew_data, 'bauvorhaben_anschrift', 'Musterstrase 3, 12345 Musterdorf')
+
+bauvorhaben_anschrift = 'Musterstrase 3, 12345 Musterdorf'
+
+
 #print(ew_data)
 
 # Bauherr
-fx.to_data(ew_data, ' bauherr', 'Herr Bauherr')
+#ew_data = fx.to_data(ew_data, 'bauherr', 'Herr Bauherr')
+
+bauherr = 'Herr Bauherr'
+
+
+#d = pd.DataFrame(data=['bauherr'], index=['Herr Bauherr'])
+#ew_data = pd.concat([ew_data, d])
+
+
+
+#print(ew_data)
 
 # Anschrift des Bauherrs
+#ew_data = fx.to_data(ew_data, 'bauherr_anschrift', 'Bauherrstrasse 666, 98765 Bauherdorf')
+
 bauherr_anschrift = 'Bauherrstrasse 666, 98765 Bauherdorf'
+
+#print(ew_data)
 
 # GEO Koordinaten 
 geo_x = 9.2
@@ -57,6 +77,6 @@ i_rc_row = df[ (df['X1_NW_GEO'] <= geo_x) & (df['X4_NE_GEO'] >= geo_x) & (df['Y1
 I_RC = i_rc_row.iloc[0, 0]
 #print(I_RC)
 
+'''
 
-
-
+'''

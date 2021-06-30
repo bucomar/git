@@ -23,6 +23,12 @@ import ew_vs as vs
 
 with open('ew_ex/ew_vorlage.tex','r') as myfile:
     text = myfile.read()
+    text = text.replace('bv-tex', prj.bauvorhaben)
+    text = text.replace('bv-anschrift-tex', prj.bauvorhaben_anschrift)
+    text = text.replace('bh-tex', prj.bauherr)
+    text = text.replace('bh-anschrift-tex', prj.bauherr_anschrift)
+    #text = text.replace('__-tex', prj)
+    #text = text.replace('__-tex', prj)
     text = text.replace('au-tex', vs.A_u_f)
     text = text.replace('rdn-tex', vs.r_Dn_f)
     text = text.replace('qdr-tex', vs.Q_dr_f)
