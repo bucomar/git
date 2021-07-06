@@ -1,0 +1,49 @@
+id|typ|san
+0|SÜ
+
+1|SWGL
+11|SF|11
+
+    110|SA|wc
+    110|SA|wt
+    110|SA|du
+    110|SA|wm
+
+    111|SA|wc
+    111|SA|wt
+    111|SA|du
+    111|SA|wm
+
+2|SWGL
+21|SWGL
+211|SF
+
+    2110|SA|ks
+    2110|SA|gs
+
+    2111|SA|ks
+    2111|SA|gs
+
+22|SF
+
+    220|SA|wc
+    220|SA|wt
+    220|SA|du
+    220|SA|wm
+        
+    221|SA|wc
+    221|SA|wt
+    221|SA|du
+    221|SA|wm
+
+3|SF
+
+    30|SA|ks
+    30|SA|gs
+
+    31|SA|ks
+    31|SA|gs
+
+
+
+

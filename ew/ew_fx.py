@@ -16,7 +16,7 @@
 
 
 
-import math as mt
+import numpy as np
 import pandas as pd
 
 import requests, zipfile, io
@@ -114,7 +114,13 @@ def son(i):
     ''' Init a "son" index -  11 => 12 '''
     return str(int(i)+1)
 
-"""
+def add_row(df, i):
+    new = pd.DataFrame(index=i, columns=df.columns)
+    df = pd.concat([df, new])
+    return df
+
+
+    """
 def add_bro(i, df = df):
     ''' Add a "brother" row to df '''
 
@@ -144,8 +150,8 @@ def q_ww(k, du):
     ''' SW |
     Q_ww [l/s] = k * SQRT(DU)
     '''
-    qww = k*m.sqrt(du)
-    return qww
+    q_ww = k * np.sqrt(du)
+    return q_ww
 
 
 def q_tot(q_ww, q_c, q_p):
@@ -153,7 +159,13 @@ def q_tot(q_ww, q_c, q_p):
     Q_tot [l/s] = Q_ww + Q_C + Q_P
     '''
     q_tot = q_ww + q_c + q_p
-    return p_tot
+    return q_tot
+
+
+
+
+
+
 
 ######################################################
 # RW | Regenwasser ###################################
@@ -173,11 +185,11 @@ def a_u(a_e, c_m):
     a_u = a_e * c_m
     return a_u
 
-def q_r():
+def q_r(r_DT, C_m, A_U):
     ''' RW | 
     Q_r [l/s] = r_DT * C_m * A_U * 1 / 10000
     '''
-    a_u = a_e * c_m
+    Q_r = r_DT * C_m * A_U * 1 / 10000
     return a_u
 
 
@@ -258,62 +270,15 @@ def mulde(A_u, r_Dn, A_s, k_f, D_vs_5, f_z=1.15, z=0.30):
 ######################################################
 
 
-
-
-
-def get_super(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    super_s = "ᴬᴮᶜᴰᴱᶠᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿˢᵀᵁⱽᵂˣʸᶻᵃᵇᶜᵈᵉᶠᵍʰᶦʲᵏˡᵐⁿᵒᵖ۹ʳˢᵗᵘᵛʷˣʸᶻ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾"
-    res = x.maketrans(''.join(normal), ''.join(super_s))
-    return x.translate(res)
-  
-# display superscipt
-# print(get_super('GeeksforGeeks')) #ᴳᵉᵉᵏˢᶠᵒʳᴳᵉᵉᵏˢ
-
-
-def get_sub(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
-    res = x.maketrans(''.join(normal), ''.join(sub_s))
-    return x.translate(res)
-  
-# display subscript
-# print('H{}SO{}'.format(get_sub('2'),get_sub('4'))) #H₂SO₄
-
-
 def normal_form(num):
     ''' Print a number in normal form ve: 1.23e-5 '''
     return ('{:.2e}'.format(num))
-
-
-def latex_export(key, value):
-    import csv
-    import os
-
-    dict_var = {}
-
-    file_path = os.path.join(os.getcwd(), "ew_data/ew.dat")
-
-    try:
-        with open(file_path, newline="") as file:
-            reader = csv.reader(file)
-            for row in reader:
-                dict_var[row[0]] = row[1]
-    except FileNotFoundError:
-        pass
-
-    dict_var[key] = value
-
-    with open(file_path, "w") as f:
-        for key in dict_var.keys():
-            f.write(f"{key}|{dict_var[key]}\n")
 
 
 def to_data(df, k, v):
     d = pd.DataFrame(data=[v], index=[k])
     df = pd.concat([df, d])
     return df
-
 
 
 ######################################################
