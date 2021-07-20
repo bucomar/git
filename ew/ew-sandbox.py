@@ -6,6 +6,67 @@ import matplotlib.pyplot as plt
 #import latex 
 import ew_fx as fx
 
+
+k = 0.5
+class leitungen:
+    def __init__(self, id, typ='SW??', du=np.nan, q_ww=np.nan):
+        self.id = id
+        self.typ = typ
+        self.du = du
+        self.q_ww = q_ww
+
+
+_0 = leitungen(0, 'SWAL', np.nan, np.nan)
+
+print(vars(_0))
+
+print(f'{_0.typ}-{_0.id}')
+
+_0.du = 2.0
+
+print(vars(_0))
+
+print(_0.du)
+
+
+print(vars(_0))
+
+_0.q_ww = fx.q_ww(k, _0.du)
+
+print(_0.q_ww)
+
+
+print(vars(_0))
+
+_1 = leitungen(1)
+
+print(vars(_1))
+
+_1.du = 1.5
+
+print(vars(_1))
+
+_1.q_ww = fx.q_ww(k, _1.du)
+
+
+print(vars(_1))
+
+
+##
+
+
+print([vars(_0),vars(_1)])
+print(type([vars(_0), vars(_1)]))
+
+
+
+df = pd.DataFrame.from_dict(data = vars(_0), orient='index')
+
+print(df)
+
+
+
+'''
 #
 
 sanyter_df = pd.read_csv('ew_data/sanyter.csv', sep='|')
@@ -95,5 +156,5 @@ print(ew_sw)
 
 
 
-
+'''
 
